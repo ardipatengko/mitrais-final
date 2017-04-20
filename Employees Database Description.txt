@@ -1,0 +1,62 @@
+Table Employees
+emp_id
+first_name
+last_name
+gender
+dob
+nationality
+mar_status
+phone
+sub_div
+status
+suspend_date
+hired_date
+email
+photo
+location (Bali, Jakarta, etc)
+grade (from grade table) many to one
+division (from division table) many to one
+
+Table Grade
+grade_id
+grade (Junior Programmer, Programmer, Analyst Programmer, Analyst, Finance & Accounting)
+grade_code  (JP, PG, AP, AN, FA)
+
+Table Division
+div_id
+division (Competency Development C, Software W Development, etc)
+division_code (CDC, SWD Pink, SWD Green, Finance & Accounting)
+
+Employees Data
+
+Albertus Mahaputra
+SE-PG, CDC AsteRx
+Bali, +62123456847948
+
+Karena Cindy Alika
+SE-AP, SWD Pink
+Yogyakarta, +6234758479990
+
+Nicholas Kondang
+SE-AN, SWD Green
+Bandung, +6293847586
+
+Diandara Sastrowardoyo
+FA-FA4, Finance & Accounting
+Jakarta, +6234647389308
+
+John Travolta
+FA-FA4, Finance & Accounting
+Bali+6234647389308
+
+Johnny Deep
+SE-JP, SWD Green
+Yogyakarta, +6293847586
+
+Johnathan Thruston
+SE-JP, SWD RED
+Bali, +6293847586
+
+George Gates
+SE-JP, SWD BLUE
+Bandung, +6293847586
