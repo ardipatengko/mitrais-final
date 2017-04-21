@@ -10,7 +10,9 @@ export class MediaItemService {
     let searchParams = new URLSearchParams();
     searchParams.append('medium', medium);
     return this.http.get('mediaitems', { search: searchParams })
+    //return this.http.get('http://localhost:8080/employeeAll')
       .map(response => {
+        //console.log(response.json());
         return response.json().mediaItems;
       });
   }

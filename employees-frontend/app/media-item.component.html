@@ -1,3 +1,4 @@
+<!--
 <h2>{{ mediaItem.name }}</h2>
 <template [ngIf]="mediaItem.watchedOn">
   <div>Watched on {{ mediaItem.watchedOn | date: 'shortDate' }}</div>
@@ -18,3 +19,11 @@
     watch
   </a>
 </div>
+-->
+      <md-card class="example-card">
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>{{ mediaItem.name }}</md-card-title>
+    <md-card-subtitle>{{ mediaItem.category}}</md-card-subtitle>
+  </md-card-header>
+</md-card>

@@ -21,7 +21,7 @@ header > h2.error {
 }
 section {
   flex: 1;
-  display: flex;
+  display: inline-block;
   flex-flow: row wrap;
   align-content: flex-start;
 }
