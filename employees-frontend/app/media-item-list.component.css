@@ -24,6 +24,7 @@ section {
   display: inline-block;
   flex-flow: row wrap;
   align-content: flex-start;
+  width: 100%;
 }
 section > media-item {
   margin: 10px;
@@ -36,3 +37,17 @@ footer .icon {
   height: 64px;
   margin: 15px;
 }
+
+#leftList{
+  width: 30%;
+  float: left;
+  box-sizing: border-box;
+}
+
+#rightForm{
+  width: 70%;
+  float: left;
+  box-sizing: border-box;
+}
+  
+

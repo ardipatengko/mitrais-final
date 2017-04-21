@@ -40,7 +40,7 @@ import {MaterialModule} from '@angular/material';
   providers: [
     MediaItemService,
     { provide: lookupListToken, useValue: lookupLists },
-    { provide: XHRBackend, useClass: MockXHRBackend }
+    //{ provide: XHRBackend, useClass: MockXHRBackend }
   ],
   bootstrap: [
     AppComponent

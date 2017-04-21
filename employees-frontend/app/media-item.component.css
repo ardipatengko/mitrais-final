@@ -1,6 +1,6 @@
 :host {
-  display: flex;
-  flex-direction: column;
+  display: inline;
+  /*flex-direction: column;*/
   width: 140px;
   height: 50px;
   /*
@@ -79,4 +79,8 @@ h2 {
 .example-header-image {
   background-image: url('media/shiba1.jpg');
   background-size: cover;
+}
+
+.example-card{
+  width: 100%;
 }
