@@ -27,3 +27,19 @@ section > header > h1 {
 section > header .description {
   font-style: italic;
 }
+
+.example-spacer{
+  flex: 1 1 auto;
+}
+
+.example-card{
+  background: none;
+  border: none;
+  box-shadow: 0 0px 0px 0px rgba(0,0,0,0), 0 0px 0px 0 rgba(0,0,0,0), 0 0px 0px 0 rgba(0,0,0,0)
+}
+
+.login-satatus{
+  font-size: 12px;
+  list-style-type: none;
+  padding: 10px 10px 10px 10px;
+}

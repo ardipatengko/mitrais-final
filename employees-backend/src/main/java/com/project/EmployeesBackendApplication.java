@@ -29,27 +29,25 @@ public class EmployeesBackendApplication {
 		return args -> {
 			/*
 			Employee e = new Employee();
-			e.setFirstName("Budi");
-			e.setLastName("Toru");
-			e.setGender("Not Found");
+			e.setFirstName("Person 1");
+			e.setLastName("People ");
+			e.setGender("Female");
 			e.setDob(new Date(0));
-			e.setNationality("Australian");
-			e.setMarStatus("Single");
+			e.setNationality("American");
+			e.setMarStatus("Married");
 			e.setPhone("+6285242312512");
-			e.setSubDiv("Java Bootcamp");
-			e.setStatus("Contract");
+			e.setSubDiv("Mitrais PHP Bootcamp");
+			e.setStatus("Employee");
 			e.setSuspendDate(new Date(1000));
 			e.setHiredDate(new Date(500));
-			e.setEmail("budi.toru@mitrais.com");
-			e.setLocation("Jakarta");
-			Grade g = new Grade();
-			g.setGrade("Project  Manager");
-			g.setGradeCode("PM");
+			e.setEmail("person1@mitrais.com");
+			e.setLocation("Bandung");
+			Grade g = gradeRepository
 			e.setGrade(g);
 			gradeRepository.save(g);
 			Division d = new Division();
-			d.setDivision("Software Development Blue");
-			d.setDivisionCode("SWD Blue");
+			d.setDivision("Software Development Red");
+			d.setDivisionCode("SWD Red");
 			e.setDivision(d);
 			divisionRepository.save(d);
 			

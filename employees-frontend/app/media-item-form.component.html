@@ -1,10 +1,11 @@
 <header>
-  <h2>Add Media to Watch</h2>
+  <!-- <h2>Add Media to Watch</h2> -->
 </header>
 <section>
   <form
     [formGroup]="form"
     (ngSubmit)="onSubmit(form.value)">
+    <!--
     <ul>
       <li>
         <label for="medium">Medium</label>
@@ -42,14 +43,12 @@
       </li>
     </ul>
     <button type="submit" [disabled]="!form.valid">Save</button>
-
-    <md-input-container>
-    <input mdInput placeholder="First Name">
-  </md-input-container>
+    -->
 
     <table class="example-full-width" cellspacing="0"><tr>
       <td><md-input-container class="example-full-width">
-        <input mdInput placeholder="First name">
+        <input mdInput placeholder="First name"
+        name="firstName" id="firstName" formControlName="firstName">
       </md-input-container></td>
       <td><md-input-container class="example-full-width">
         <input mdInput placeholder="Sub Division">
@@ -114,8 +113,8 @@
 
     <table class="example-full-width" cellspacing="0">
       <tr>
-        <button md-raised-button>Cancel</button>
-        <button md-raised-button>Save</button>
+        <button type="reset" md-raised-button>Cancel</button>
+        <button type="submit" md-raised-button>Save</button>
         <button md-fab><md-icon>add</md-icon></button>
       </tr>
     </table>
