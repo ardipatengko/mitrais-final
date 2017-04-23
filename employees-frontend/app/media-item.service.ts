@@ -12,18 +12,28 @@ export class MediaItemService {
     //return this.http.get('mediaitems', { search: searchParams })
     return this.http.get('http://localhost:8080/employeeAll/')
       .map(response => {
-        //console.log(response.json()[0].firstName);
+        console.log(response.json()[0].firstName);
         return response.json();
       });
   }
   
   add(mediaItem) {
-    return this.http.post('mediaitems', mediaItem)
-      .map(response => {});
+    return this.http.post('http://localhost:8080/saveEmployee/', mediaItem)
+      .map(response => {
+        console.log(mediaItem);
+      });
   }
   
   delete(mediaItem) {
     return this.http.delete(`mediaitems/${mediaItem.id}`)
       .map(response => {});
+  }
+
+  getGrades() {
+    return this.http.get('http://localhost:8080/grades')
+      .map(response => {
+        console.log(response.json());
+        //return response.json();
+      });
   }
 }

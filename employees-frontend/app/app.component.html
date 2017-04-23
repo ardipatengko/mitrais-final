@@ -15,31 +15,34 @@
 
 
 -->
-<section>
-  <header>
-    <md-toolbar color="primary">
-      <button md-icon-button>
-        <md-icon>list</md-icon>
-      </button>
-          <i class="material-icons toolbar person">person_pin</i>
-          <ul class="login-satatus">
-            <li> Ardi </li>
-            <li> SE - JP </li>
-          </ul>
-      <span class="example-spacer"></span>
-        <md-icon class="example-icon">settings</md-icon>
-        <md-icon class="example-icon">power_settings_new</md-icon>
-    </md-toolbar>
-  </header>
+<div id="wrapper">
   <section>
-    <!--
-    <md-input-container class="example-full-width">
-        <input mdInput placeholder="Search">
-      </md-input-container>
+    <header>
+      <md-toolbar color="primary">
+        <button md-icon-button>
+          <md-icon>list</md-icon>
+        </button>
+            <i class="material-icons toolbar person">person_pin</i>
+            <ul class="login-satatus">
+              <li> Ardi Pratama Patengko</li>
+              <li> SE - JP </li>
+            </ul>
+        <span class="example-spacer"></span>
+          <md-icon class="example-icon iconpadding">settings</md-icon>
+          <md-icon class="example-icon iconpadding">power_settings_new</md-icon>
+      </md-toolbar>
+    </header>
+    <section>
+      <!--
+      <md-input-container class="example-full-width">
+          <input mdInput placeholder="Search">
+        </md-input-container>
+    </section>
+    <md-chip-list>
+      <md-chip>One fish</md-chip>
+    </md-chip-list>
+    -->
+    <router-outlet></router-outlet>
   </section>
-  <md-chip-list>
-    <md-chip>One fish</md-chip>
-  </md-chip-list>
-  -->
-  <router-outlet></router-outlet>
-</section>
+  </section>
+</div>

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { MediaItemService } from './media-item.service';
 import { lookupListToken } from './providers';
+import { lookupListToken2 } from './providers';
 
 
 
@@ -19,18 +20,28 @@ export class MediaItemFormComponent {
     private formBuilder: FormBuilder,
     private mediaItemService: MediaItemService,
     @Inject(lookupListToken) public lookupLists,
+    @Inject(lookupListToken2) public lookupLists2,
     private router: Router) {}
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      medium: this.formBuilder.control('Movies'),
       firstName: this.formBuilder.control('', Validators.compose([
         Validators.required,
         Validators.pattern('[\\w\\-\\s\\/]+')
       ])),
       lastName: this.formBuilder.control(''),
-      category: this.formBuilder.control(''),
-      year: this.formBuilder.control('', this.yearValidator),
+      subDivision: this.formBuilder.control(''),
+      status: this.formBuilder.control(''),
+      gender: this.formBuilder.control(''),
+      suspendDate:this.formBuilder.control(''),
+      dob:this.formBuilder.control(''),
+      hiredDate:this.formBuilder.control(''),
+      nationality:this.formBuilder.control(''),
+      grade:this.formBuilder.control(''),
+      maritalStatus: this.formBuilder.control(''),
+      division: this.formBuilder.control(''),
+      phone: this.formBuilder.control(''),
+      email: this.formBuilder.control(''),
     });
   }
 

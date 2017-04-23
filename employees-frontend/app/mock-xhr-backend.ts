@@ -20,7 +20,7 @@ export class MockXHRBackend {
             }
             var mediaItems;
             if (medium) {
-              mediaItems = this._mediaItems.filter(mediaItem => mediaItem.medium === medium);
+              mediaItems = this._mediaItems.filter(mediaItem => mediaItem.location === medium);
             } else {
               mediaItems = this._mediaItems;
             }
@@ -30,7 +30,7 @@ export class MockXHRBackend {
             });
           } else {
             var id = parseInt(request.url.split('/')[1]);
-            mediaItems = this._mediaItems.filter(mediaItem => mediaItem.id === id);
+            mediaItems = this._mediaItems.filter(mediaItem => mediaItem.empId === id);
             responseOptions = new ResponseOptions({
               body: JSON.parse(JSON.stringify(mediaItems[0])),
               status: 200
@@ -58,7 +58,7 @@ export class MockXHRBackend {
   }
 
   _deleteMediaItem(id) {
-    var mediaItem = this._mediaItems.find(mediaItem => mediaItem.id === id);
+    var mediaItem = this._mediaItems.find(mediaItem => mediaItem.empId === id);
     var index = this._mediaItems.indexOf(mediaItem);
     if (index >= 0) {
       this._mediaItems.splice(index, 1);
@@ -67,37 +67,83 @@ export class MockXHRBackend {
 
   _getNewId() {
     if (this._mediaItems.length > 0) {
-      return Math.max.apply(Math, this._mediaItems.map(mediaItem => mediaItem.id)) + 1;
+      return Math.max.apply(Math, this._mediaItems.map(mediaItem => mediaItem.empId)) + 1;
     }
   }
 
   _mediaItems = [
     {
-      id: 1,
-      name: "Firebug",
-      medium: "Series",
-      category: "Science Fiction",
-      year: 2010,
-      watchedOn: 1294166565384,
-      isFavorite: false
+      empId: 1,
+      firstName: "Person 1",
+      lastName: "People ",
+      gender: "Female",
+      dob: "1969-12-30",
+      nationality: "American",
+      marStatus: "Married",
+      phone: "+6285242312512",
+      subDiv: "Mitrais PHP Bootcamp",
+      status: "Employee",
+      suspendDate: "1969-12-30",
+      hiredDate: "1969-12-30",
+      email: "person1@mitrais.com",
+      location: "Bandung",
+      grade : {
+        grade: "Junior Programmer",
+        gradeCode: "JP"
+      },
+      division : {
+        grade: "Software Development Red",
+        gradeCode: "SWD Red"
+      }
     },
     {
-      id: 2,
-      name: "The Small Tall",
-      medium: "Movies",
-      category: "Comedy",
-      year: 2015,
-      watchedOn: null,
-      isFavorite: true
+      empId: 2,
+      firstName: "Person 2",
+      lastName: "People",
+      gender: "Male",
+      dob: "1969-12-30",
+      nationality: "Indonesian",
+      marStatus: "Single",
+      phone: "+6285242312512",
+      subDiv: "Mitrais Java Bootcamp",
+      status: "Employee",
+      suspendDate: "1969-12-30",
+      hiredDate: "1969-12-30",
+      email: "person2@mitrais.com",
+      location: "Jakarta",
+      grade : {
+        grade: "Programmer",
+        gradeCode: "PG"
+      },
+      division : {
+        grade: "Software Development Blue",
+        gradeCode: "SWD Blue"
+      }
     }, {
-      id: 3,
-      name: "The Redemption",
-      medium: "Movies",
-      category: "Action",
-      year: 2016,
-      watchedOn: null,
-      isFavorite: false
-    }, {
+      empId: 3,
+      firstName: "Person 3",
+      lastName: "People",
+      gender: "Male",
+      dob: "1969-12-30",
+      nationality: "Australian",
+      marStatus: "Single",
+      phone: "+6285242312512",
+      subDiv: "Mitrais AngularJS Bootcamp",
+      status: "Employee",
+      suspendDate: "1969-12-30",
+      hiredDate: "1969-12-30",
+      email: "person3@mitrais.com",
+      location: "Bandung",
+      grade : {
+        grade: "Junior Programmer",
+        gradeCode: "JP"
+      },
+      division : {
+        grade: "Software Development Red",
+        gradeCode: "SWD Red"
+      }
+    }
+    /*, {
       id: 4,
       name: "Hoopers",
       medium: "Series",
@@ -114,5 +160,6 @@ export class MockXHRBackend {
       watchedOn: 1457166565384,
       isFavorite: false
     }
+    */
   ];
 }

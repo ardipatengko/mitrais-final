@@ -19,7 +19,7 @@ section {
 }
 section > header {
   color: black;
-  padding: 10px;
+  padding: 10px 10px 0px 10px;
 }
 section > header > h1 {
   font-size: 2em;
@@ -42,4 +42,20 @@ section > header .description {
   font-size: 12px;
   list-style-type: none;
   padding: 10px 10px 10px 10px;
+}
+
+ul li{
+  padding: 2px;
+  font-size: 15px;
+}
+
+.iconpadding{
+  padding: 5px;
+}
+
+#wrapper{
+  width: 80%;
+  padding: 10px;
+  background-color: white;
+  margin: 0 auto;
 }

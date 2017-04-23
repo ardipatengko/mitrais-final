@@ -49,67 +49,81 @@
       <tr>
       <td><md-input-container class="example-full-width">
         <input mdInput placeholder="First name"
-        name="firstName" id="firstName" formControlName="firstName" size="100">
+        name="firstName" id="firstName" formControlName="firstName" size="50">
       </md-input-container></td>
       <td><md-input-container class="example-full-width">
-        <input mdInput placeholder="Sub Division">
+        <input mdInput placeholder="Sub Division" 
+        name="subDivision" formControlName="subDivision" id="subDivision" size="50">
       </md-input-container></td>
     </tr>
     </table>
 
     <table class="example-full-width" cellspacing="0"><tr>
       <td><md-input-container class="example-full-width">
-        <input mdInput placeholder="Last name">
+        <input mdInput placeholder="Last name"
+        name="lastName" id="lastName" formControlName="lastName" size="50">
       </md-input-container></td>
       <td><md-input-container class="example-full-width">
-        <input mdInput placeholder="Status">
+        <input mdInput placeholder="Status"
+        name="status" id="status" formControlName="status" size="50">
       </md-input-container></td>
     </tr></table>
 
     <table class="example-full-width" cellspacing="0"><tr>
       <td><md-input-container class="example-full-width">
-        <input mdInput placeholder="Gender">
+        <input mdInput placeholder="Gender"
+         name="gender" id="gender" formControlName="gender" size="50">
       </md-input-container></td>
       <td><md-input-container class="example-full-width">
-        <input mdInput placeholder="Suspend Date">
+        <input mdInput placeholder="Suspend Date"
+         name="suspendDate" id="suspendDate" formControlName="suspendDate" size="50">
       </md-input-container></td>
     </tr></table>
 
     <table class="example-full-width" cellspacing="0"><tr>
       <td><md-input-container class="example-full-width">
-        <input type="date" mdInput placeholder="Date of Birth">
+        <input type="date" mdInput placeholder="Date of Birth"
+         name="dob" id="dob" formControlName="dob" style="width: 340px;">
       </md-input-container></td>
       <td><md-input-container class="example-full-width">
-        <input type="date" mdInput placeholder="Hired Date">
+        <input type="date" mdInput placeholder="Hired Date"
+        name="hiredDate" id="hiredDate" formControlName="hiredDate" style="width: 340px;">
       </md-input-container></td>
     </tr></table>
 
     <table class="example-full-width" cellspacing="0"><tr>
       <td><md-input-container class="example-full-width">
-        <input mdInput placeholder="Nationality">
+        <input mdInput placeholder="Nationality"
+         name="nationality" id="nationality" formControlName="nationality" size="38">
       </md-input-container></td>
-      <td> <md-select placeholder="Favorite food" class="example-full-width">
-      <md-option> Tes
+      <td> <md-select placeholder="Grade" class="example-full-width"
+      name="grade" id="grade" formControlName="grade" style="width: 340px;">
+      <md-option *ngFor="let grade of lookupLists.grades" value="{{grade.gradeId}}">{{grade.gradeCode}} - {{grade.grade}} 
       </md-option>
     </md-select></td>
     </tr></table>
 
     <table class="example-full-width" cellspacing="0"><tr>
       <td><md-input-container class="example-full-width">
-        <input mdInput placeholder="Marital Status">
+        <input mdInput placeholder="Marital Status"
+        name="maritalStatus" id="maritalStatus" formControlName="maritalStatus" size="38">
       </md-input-container></td>
-      <td> <md-select placeholder="Division" class="example-full-width">
-      <md-option> Tes
+      <td> <md-select placeholder="Division" class="example-full-width"
+      name="division" id="division" formControlName="division" style="width: 340px;">
+      <md-option *ngFor="let division of lookupLists2.divisions" 
+      value="{{division.divId}}">{{division.divisionCode}} - {{division.division}} 
       </md-option>
     </md-select></td>
     </tr></table>
 
     <table class="example-full-width" cellspacing="0"><tr>
       <td><md-input-container class="example-full-width">
-        <input mdInput placeholder="Phone">
+        <input mdInput placeholder="Phone"
+        name="phone" id="phone" formControlName="phone" size="50">
       </md-input-container></td>
       <td><md-input-container class="example-full-width">
-        <input mdInput placeholder="Email">
+        <input mdInput placeholder="Email"
+        name="email" id="email" formControlName="email" size="50">
       </md-input-container></td>
     </tr></table>
 

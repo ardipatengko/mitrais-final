@@ -44,7 +44,7 @@ export class MediaItemListComponent {
     this.mediaItemService.get(medium)
       .subscribe(mediaItems => {
         this.mediaItems = mediaItems;
-        console.log(mediaItems[0]);
+        //console.log(mediaItems[2]);
       });
   }
 }

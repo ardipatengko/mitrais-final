@@ -11,6 +11,7 @@ import { CategoryListPipe } from './category-list.pipe';
 import { MediaItemFormComponent } from './media-item-form.component';
 import { MediaItemService } from './media-item.service';
 import { lookupListToken, lookupLists } from './providers';
+import { lookupListToken2, lookupLists2 } from './providers';
 import { MockXHRBackend } from './mock-xhr-backend';
 import { routing } from './app.routing';
 
@@ -40,6 +41,7 @@ import {MaterialModule} from '@angular/material';
   providers: [
     MediaItemService,
     { provide: lookupListToken, useValue: lookupLists },
+    { provide: lookupListToken2, useValue: lookupLists2 },
     //{ provide: XHRBackend, useClass: MockXHRBackend }
   ],
   bootstrap: [
