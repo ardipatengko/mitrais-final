@@ -24,7 +24,9 @@
   <md-card-header>
     <img md-card-avatar src="media/shiba1.jpg" />
     <!--<div md-card-avatar class="example-header-image"></div>-->
-    <md-card-title>{{ mediaItem.firstName }}</md-card-title>
-    <md-card-subtitle>{{ mediaItem.lastName}}</md-card-subtitle>
+    <md-card-title >{{ mediaItem.firstName }} {{ mediaItem.lastName}}</md-card-title>
+    <md-card-subtitle>{{ mediaItem.grade.gradeCode }} - {{ mediaItem.grade.grade }}, {{ mediaItem.division.divisionCode }}</md-card-subtitle>
+    <md-card-subtitle>{{ mediaItem.location }}, {{ mediaItem.phone }}</md-card-subtitle>
+    <md-card-subtitle>{{ mediaItem.hiredDate  | date: 'mediumDate' }}</md-card-subtitle>
   </md-card-header>
 </md-card>

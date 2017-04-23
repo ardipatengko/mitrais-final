@@ -59,3 +59,10 @@ ul li{
   background-color: white;
   margin: 0 auto;
 }
+
+#leftSearch{
+  padding-left: 10px;
+  width: 30%;
+  float: left;
+  box-sizing: border-box;
+}

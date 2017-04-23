@@ -43,7 +43,7 @@ export class MediaItemListComponent {
     this.medium = medium;
     this.mediaItemService.get(medium)
       .subscribe(mediaItems => {
-        this.mediaItems = mediaItems;
+        this.mediaItems = mediaItems; // for filer use this : .filter(mediaItem => mediaItem.location === 'Jakarta');
         //console.log(mediaItems[2]);
       });
   }

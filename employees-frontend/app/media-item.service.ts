@@ -18,7 +18,8 @@ export class MediaItemService {
   }
   
   add(mediaItem) {
-    return this.http.post('http://localhost:8080/saveEmployee/', mediaItem)
+    console.log(mediaItem);
+    return this.http.post(`http://localhost:8080/saveEmployee/${mediaItem}`, mediaItem)
       .map(response => {
         console.log(mediaItem);
       });
