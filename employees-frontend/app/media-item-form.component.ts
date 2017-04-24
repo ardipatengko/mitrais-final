@@ -65,7 +65,7 @@ export class MediaItemFormComponent {
   }
 
   onSubmit(mediaItem) {
-    console.log(mediaItem);
+    //console.log(mediaItem);
     this.mediaItemService.add(mediaItem)
       .subscribe(() => {
         this.router.navigate(['/', mediaItem.medium]);
