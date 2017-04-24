@@ -1,0 +1,25 @@
+URL : http://localhost:8080//saveEmployee
+
+{
+  "division" : {
+  	  "division": "Software Development Red",
+  "divisionCode": "SWD Red"
+  },
+  "dob":"1993-07-25",
+"email": "ardipatengko@gmail.com",
+ "firstName" : "Ardi",
+"gender" : "Male",
+"grade" : {
+	"grade": "Junior Programmer",
+  "gradeCode": "JP"
+},
+"hiredDate":"2017-03-06",
+"lastName":"Patengko",
+"marStatus":"Single",
+"nationality":"Indonesia",
+"phone":"085242312512",
+"status":"Trainee",
+"subDiv":"subdiv",
+"suspendDate":"123",
+"location":"Jakarta"
+}
