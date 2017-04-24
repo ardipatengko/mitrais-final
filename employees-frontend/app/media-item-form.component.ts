@@ -42,6 +42,7 @@ export class MediaItemFormComponent {
       division: this.formBuilder.control(''),
       phone: this.formBuilder.control(''),
       email: this.formBuilder.control(''),
+      location: this.formBuilder.control('')
     });
   }
 

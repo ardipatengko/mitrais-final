@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/map';
+import {Headers, RequestOptions} from '@angular/http';
 
 @Injectable()
 export class MediaItemService {
@@ -19,7 +20,10 @@ export class MediaItemService {
   
   add(mediaItem) {
     console.log(mediaItem);
-    return this.http.post(`http://localhost:8080/saveEmployee/${mediaItem}`, mediaItem)
+    let body = JSON.stringify(mediaItem);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post('http://localhost:8080/saveEmployee', body, options)
       .map(response => {
         console.log(mediaItem);
       });

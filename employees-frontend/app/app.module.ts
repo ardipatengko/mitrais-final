@@ -6,7 +6,7 @@ import { HttpModule, XHRBackend } from '@angular/http';
 import { AppComponent } from './app.component';
 import { MediaItemComponent } from './media-item.component';
 import { MediaItemListComponent } from './media-item-list.component';
-import { DialogOverviewExampleDialog } from './media-item-list.component';
+import { DialogResultExampleDialog } from './media-item-list.component';
 import { FavoriteDirective } from './favorite.directive';
 import { CategoryListPipe } from './category-list.pipe';
 import { MediaItemFormComponent } from './media-item-form.component';
@@ -38,13 +38,16 @@ import {MaterialModule} from '@angular/material';
     FavoriteDirective,
     CategoryListPipe,
     MediaItemFormComponent,
-    DialogOverviewExampleDialog
+    DialogResultExampleDialog
   ],
   providers: [
     MediaItemService,
     { provide: lookupListToken, useValue: lookupLists },
     { provide: lookupListToken2, useValue: lookupLists2 },
     //{ provide: XHRBackend, useClass: MockXHRBackend }
+  ],
+  entryComponents: [
+    DialogResultExampleDialog
   ],
   bootstrap: [
     AppComponent

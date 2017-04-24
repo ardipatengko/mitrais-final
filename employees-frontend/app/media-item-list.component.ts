@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { MediaItemService } from './media-item.service';
-import {MdDialog} from '@angular/material';
+import {MdDialog, MdDialogRef} from '@angular/material';
 
 @Component({
   selector: 'mw-media-item-list',
@@ -15,6 +15,8 @@ export class MediaItemListComponent {
   paramsSubscription;
   mediaItemsCount = 0;
   sortingVar = true;
+  selectedOption: string;
+  genderSelected = '';
 
   constructor(
     private mediaItemService: MediaItemService,
@@ -116,12 +118,22 @@ filterItem(value){
   }
 
   openDialog() {
-    this.dialog.open(DialogOverviewExampleDialog);
+    let dialogRef = this.dialog.open(DialogResultExampleDialog, {
+       height: '250px',
+       width: '300px',
+       
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      //console.log(result);
+      this.selectedOption = result;
+    });
   }
 }
 
 @Component({
-  selector: 'dialog-overview-example-dialog',
-  templateUrl: 'app/dialog-overview-example-dialog.html',
+  selector: 'dialog-result-example-dialog',
+  templateUrl: 'app/dialog-result-example-dialog.html'
 })
-export class DialogOverviewExampleDialog {}
+export class DialogResultExampleDialog {
+  constructor(public dialogRef: MdDialogRef<DialogResultExampleDialog>) {}
+}

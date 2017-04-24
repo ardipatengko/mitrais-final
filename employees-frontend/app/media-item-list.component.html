@@ -11,9 +11,8 @@
         <button md-icon-button (click)="sorting($event)">
           <md-icon >sort</md-icon>
         </button>
-        <button md-icon-button (click)="openDialog()">
-          <md-icon>filter</md-icon>
-        </button>
+        <button md-button (click)="openDialog()">Launch dialog</button>
+          You chose: {{selectedOption}}
         
       <md-chip> {{ mediaItemsCount }}</md-chip>
     
