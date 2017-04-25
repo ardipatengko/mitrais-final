@@ -43,14 +43,16 @@ export class MediaItemListComponent {
     this.paramsSubscription.unsubscribe();
   }
 
-  onMediaItemDelete(mediaItem) {
+  onMediaItemSelect(mediaItem) {
     this.employee = mediaItem;
     //console.log(mediaItem);
+    /*
     this.mediaItemService.delete(mediaItem)
       .subscribe(() => {
         //this.getMediaItems(this.medium);
         
       });
+      */
   }
 
   getMediaItems(medium) {

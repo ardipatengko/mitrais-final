@@ -17,6 +17,7 @@ import { lookupListToken3 } from './providers';
 export class MediaItemFormComponent {
   form;
   @Input() employeeForm;
+  isNew = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -70,12 +71,16 @@ export class MediaItemFormComponent {
 
   onSubmit(mediaItem) {
     //console.log(this.employeeForm);
-    /*
-    this.mediaItemService.add(mediaItem)
+    if(this.isNew){
+      this.mediaItemService.add(mediaItem)
       .subscribe(() => {
         this.router.navigate(['/']);
       });
-      */
+      this.isNew = true;
+    }else{
+      console.log("UPDATE");
+    }
+
   }
 
   listClick(event, newValue) {
@@ -109,6 +114,7 @@ export class MediaItemFormComponent {
           email: this.employeeForm.email,
           location: this.employeeForm.location
         });
+        this.isNew = false;
     }
   }
 }
