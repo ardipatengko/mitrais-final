@@ -46,14 +46,14 @@
     -->
 
     <table class="example-full-width" cellspacing="0">
-      <tr>
+      <tr> <p> {{ employeeUpdate }} </p>
       <td><md-input-container class="example-full-width">
         <input mdInput placeholder="First name"
         name="firstName" id="firstName" formControlName="firstName" size="50">
       </md-input-container></td>
       <td><md-input-container class="example-full-width">
         <input mdInput placeholder="Sub Division" 
-        name="subDivision" formControlName="subDivision" id="subDivision" size="50">
+        name="subDiv" formControlName="subDiv" id="subDiv" size="50">
       </md-input-container></td>
     </tr>
     </table>
@@ -70,12 +70,14 @@
     </tr></table>
 
     <table class="example-full-width" cellspacing="0"><tr>
+      <td> <md-select placeholder="Gender" class="example-full-width"
+      name="gender" id="gender" formControlName="gender" style="width: 340px;">
+      <md-option *ngFor="let gender of lookupLists3.genders" 
+      value="{{gender}}">{{gender}}
+      </md-option>
+    </md-select></td>
       <td><md-input-container class="example-full-width">
-        <input mdInput placeholder="Gender"
-         name="gender" id="gender" formControlName="gender" size="50">
-      </md-input-container></td>
-      <td><md-input-container class="example-full-width">
-        <input mdInput placeholder="Suspend Date"
+        <input type="date" mdInput placeholder="Suspend Date"
          name="suspendDate" id="suspendDate" formControlName="suspendDate" size="50">
       </md-input-container></td>
     </tr></table>
@@ -98,7 +100,7 @@
       </md-input-container></td>
       <td> <md-select placeholder="Grade" class="example-full-width"
       name="grade" id="grade" formControlName="grade" style="width: 340px;">
-      <md-option *ngFor="let grade of lookupLists.grades" value="{{grade.gradeId}}">{{grade.gradeCode}} - {{grade.grade}} 
+      <md-option *ngFor="let grade of lookupLists.grades" value="{{grade.gradeCode}} - {{grade.grade}}">{{grade.gradeCode}} - {{grade.grade}} 
       </md-option>
     </md-select></td>
     </tr></table>
@@ -106,12 +108,12 @@
     <table class="example-full-width" cellspacing="0"><tr>
       <td><md-input-container class="example-full-width">
         <input mdInput placeholder="Marital Status"
-        name="maritalStatus" id="maritalStatus" formControlName="maritalStatus" size="38">
+        name="marStatus" id="marStatus" formControlName="marStatus" size="38">
       </md-input-container></td>
       <td> <md-select placeholder="Division" class="example-full-width"
       name="division" id="division" formControlName="division" style="width: 340px;">
       <md-option *ngFor="let division of lookupLists2.divisions" 
-      value="{{division.divId}}">{{division.divisionCode}} - {{division.division}} 
+      value="{{division.divisionCode}}">{{division.divisionCode}} - {{division.division}} 
       </md-option>
     </md-select></td>
     </tr></table>
@@ -141,9 +143,8 @@
         <button md-fab><md-icon>add</md-icon></button>
       </tr>
     </table>
-    
+  
   </form>
 </section>
 <!--
-
 -->

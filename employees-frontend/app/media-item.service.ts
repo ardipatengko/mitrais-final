@@ -13,7 +13,7 @@ export class MediaItemService {
     //return this.http.get('mediaitems', { search: searchParams })
     return this.http.get('http://localhost:8080/employeeAll/')
       .map(response => {
-        console.log(response.json()[0].firstName);
+        //console.log(response.json()[0].firstName);
         return response.json();
       });
   }
@@ -25,6 +25,7 @@ export class MediaItemService {
     let options = new RequestOptions({ headers: headers });
     return this.http.post('http://localhost:8080/saveEmployee', body, options)
       .map(response => {
+        console.log("SUCCESS ADD")
         console.log(mediaItem);
       });
   }
@@ -36,6 +37,14 @@ export class MediaItemService {
 
   getGrades() {
     return this.http.get('http://localhost:8080/grades')
+      .map(response => {
+        console.log(response.json());
+        //return response.json();
+      });
+  }
+
+  getGrade(gradeId) {
+    return this.http.get('http://localhost:8080/grades/search/findByGradeId?grade_id=' + gradeId)
       .map(response => {
         console.log(response.json());
         //return response.json();

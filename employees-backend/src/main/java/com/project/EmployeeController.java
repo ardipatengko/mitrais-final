@@ -23,10 +23,10 @@ public class EmployeeController {
 	
 	@CrossOrigin(origins = "http://localhost:3000", methods=RequestMethod.POST)
     @RequestMapping(value="/saveEmployee", method=RequestMethod.POST, consumes="application/json")
-	public Employee saveEmployee(@RequestBody Employee employee) {
-		//employeeRepository.save(employee);
+	public void saveEmployee(@RequestBody Employee employee) {
+		employeeRepository.save(employee);
 		//System.out.println(employee.getFirstName());
-		return employee;
+		//return employee;
 	}
 	
 	@CrossOrigin(origins = "http://localhost:3000")

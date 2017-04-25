@@ -5,6 +5,7 @@ import { MediaItemService } from './media-item.service';
 */
 export const lookupListToken = new OpaqueToken('lookupListToken');
 export const lookupListToken2 = new OpaqueToken('lookupListToken2');
+export const lookupListToken3 = new OpaqueToken('lookupListToken3');
 
 /*
 const grades = [];
@@ -64,5 +65,12 @@ export const lookupLists2 = {
         division: "Training & Development",
         divisionCode: "TnD"
       }
+  ]
+};
+
+export const lookupLists3 = {
+  genders: [
+    'Male',
+    'Female'
   ]
 };

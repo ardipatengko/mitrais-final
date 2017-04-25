@@ -18,6 +18,8 @@ export class MediaItemListComponent {
   selectedOption: string;
   genderSelected = '';
 
+  employee;
+
   constructor(
     private mediaItemService: MediaItemService,
     private activatedRoute: ActivatedRoute,
@@ -42,9 +44,12 @@ export class MediaItemListComponent {
   }
 
   onMediaItemDelete(mediaItem) {
+    this.employee = mediaItem;
+    //console.log(mediaItem);
     this.mediaItemService.delete(mediaItem)
       .subscribe(() => {
-        this.getMediaItems(this.medium);
+        //this.getMediaItems(this.medium);
+        
       });
   }
 
@@ -75,9 +80,9 @@ filterItem(value){
         this.getMediaItems('tes');
       }//when nothing has typed
    this.mediaItems = Object.assign([], this.mediaItems).filter(
-      mediaItem => mediaItem.firstName.toLowerCase().indexOf(value.toLowerCase()) > -1 ||
+      mediaItem => mediaItem.lastName.toLowerCase().indexOf(value.toLowerCase()) > -1/* ||
        mediaItem.lastName.toLowerCase().indexOf(value.toLowerCase()) > -1 || 
-       (mediaItem.firstName + ' ' + mediaItem.lastName).toLowerCase().indexOf(value.toLowerCase()) > -1
+       (mediaItem.firstName + ' ' + mediaItem.lastName).toLowerCase().indexOf(value.toLowerCase()) > -1*/
    )
    this.mediaItemsCount = this.mediaItems.length;
    this.assignCopy();

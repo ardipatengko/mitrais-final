@@ -68,3 +68,7 @@ section{
 td{
   padding: 10px;
 }
+
+.active{
+  color: blue;
+}

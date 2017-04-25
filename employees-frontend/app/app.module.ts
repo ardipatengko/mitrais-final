@@ -13,6 +13,7 @@ import { MediaItemFormComponent } from './media-item-form.component';
 import { MediaItemService } from './media-item.service';
 import { lookupListToken, lookupLists } from './providers';
 import { lookupListToken2, lookupLists2 } from './providers';
+import { lookupListToken3, lookupLists3 } from './providers';
 import { MockXHRBackend } from './mock-xhr-backend';
 import { routing } from './app.routing';
 
@@ -44,6 +45,7 @@ import {MaterialModule} from '@angular/material';
     MediaItemService,
     { provide: lookupListToken, useValue: lookupLists },
     { provide: lookupListToken2, useValue: lookupLists2 },
+    { provide: lookupListToken3, useValue: lookupLists3 },
     //{ provide: XHRBackend, useClass: MockXHRBackend }
   ],
   entryComponents: [

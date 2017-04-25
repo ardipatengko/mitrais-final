@@ -1,10 +1,11 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, Input, SimpleChanges } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { MediaItemService } from './media-item.service';
 import { lookupListToken } from './providers';
 import { lookupListToken2 } from './providers';
+import { lookupListToken3 } from './providers';
 
 
 
@@ -15,12 +16,14 @@ import { lookupListToken2 } from './providers';
 })
 export class MediaItemFormComponent {
   form;
+  @Input() employeeForm;
 
   constructor(
     private formBuilder: FormBuilder,
     private mediaItemService: MediaItemService,
     @Inject(lookupListToken) public lookupLists,
     @Inject(lookupListToken2) public lookupLists2,
+    @Inject(lookupListToken3) public lookupLists3,
     private router: Router) {}
 
   ngOnInit() {
@@ -30,7 +33,7 @@ export class MediaItemFormComponent {
         Validators.pattern('[\\w\\-\\s\\/]+')
       ])),
       lastName: this.formBuilder.control(''),
-      subDivision: this.formBuilder.control(''),
+      subDiv: this.formBuilder.control(''),
       status: this.formBuilder.control(''),
       gender: this.formBuilder.control(''),
       suspendDate:this.formBuilder.control(''),
@@ -38,7 +41,7 @@ export class MediaItemFormComponent {
       hiredDate:this.formBuilder.control(''),
       nationality:this.formBuilder.control(''),
       grade:this.formBuilder.control(''),
-      maritalStatus: this.formBuilder.control(''),
+      marStatus: this.formBuilder.control(''),
       division: this.formBuilder.control(''),
       phone: this.formBuilder.control(''),
       email: this.formBuilder.control(''),
@@ -66,10 +69,46 @@ export class MediaItemFormComponent {
   }
 
   onSubmit(mediaItem) {
-    //console.log(mediaItem);
+    //console.log(this.employeeForm);
+    /*
     this.mediaItemService.add(mediaItem)
       .subscribe(() => {
-        this.router.navigate(['/', mediaItem.medium]);
+        this.router.navigate(['/']);
       });
+      */
+  }
+
+  listClick(event, newValue) {
+    console.log(newValue);
+    //this.selectedItem = newValue;  // don't forget to update the model here
+    // ... do other stuff here ...
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    // changes.prop contains the old and the new value...
+    //this.form.setValue({firstName: this.employeeForm.firstName});
+    //this.formBuilder.control['firstName'].setValue(this.employeeForm.firstname);
+    //this.form.patchValue({firstName: this.employeeForm.firstName})
+    
+    if(this.employeeForm != undefined){
+       console.log(this.employeeForm);
+       this.form.setValue({
+         firstName: this.employeeForm.firstName,
+          lastName: this.employeeForm.lastName,
+          subDiv: this.employeeForm.subDiv,
+          status: this.employeeForm.status,
+          gender: this.employeeForm.gender,
+          suspendDate:this.employeeForm.suspendDate,
+          dob:this.employeeForm.dob,
+          hiredDate:this.employeeForm.hiredDate,
+          nationality:this.employeeForm.nationality,
+          grade:this.employeeForm.grade,
+          marStatus: this.employeeForm.marStatus,
+          division: this.employeeForm.division,
+          phone: this.employeeForm.phone,
+          email: this.employeeForm.email,
+          location: this.employeeForm.location
+        });
+    }
   }
 }

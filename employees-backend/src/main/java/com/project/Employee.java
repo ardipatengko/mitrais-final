@@ -62,13 +62,15 @@ public class Employee {
 	@Column(name = "location", nullable = false)
 	private String location;
 	
-	@ManyToOne
-	@JoinColumn(name = "grade_id")
-	private Grade grade;
+	//@ManyToOne
+	//@JoinColumn(name = "grade_id")
+	//private Grade grade;
+	private String grade;
 	
-	@ManyToOne
-	@JoinColumn(name = "div_id")
-	private Division division;
+	//@ManyToOne
+	//@JoinColumn(name = "div_id")
+	//private Division division;
+	private String division;
 
 	public long getEmpId() {
 		return empId;
@@ -182,19 +184,19 @@ public class Employee {
 		this.location = location;
 	}
 
-	public Grade getGrade() {
+	public String getGrade() {
 		return grade;
 	}
 
-	public void setGrade(Grade grade) {
+	public void setGrade(String grade) {
 		this.grade = grade;
 	}
 
-	public Division getDivision() {
+	public String getDivision() {
 		return division;
 	}
 
-	public void setDivision(Division division) {
+	public void setDivision(String division) {
 		this.division = division;
 	}
 	

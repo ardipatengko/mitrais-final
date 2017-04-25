@@ -20,13 +20,30 @@
   </a>
 </div>
 -->
-      <md-card class="example-card">
+<!--
+<md-card class="example-card">
   <md-card-header>
     <img md-card-avatar src="media/shiba1.jpg" />
-    <!--<div md-card-avatar class="example-header-image"></div>-->
+    <div md-card-avatar class="example-header-image"></div>
     <md-card-title >{{ mediaItem.firstName }} {{ mediaItem.lastName}}</md-card-title>
-    <md-card-subtitle>{{ mediaItem.grade.gradeCode }} - {{ mediaItem.grade.grade }}, {{ mediaItem.division.divisionCode }}</md-card-subtitle>
+    <md-card-subtitle>{{ mediaItem.grade}}, {{ mediaItem.division}}</md-card-subtitle>
     <md-card-subtitle>{{ mediaItem.location }}, {{ mediaItem.phone }}</md-card-subtitle>
     <md-card-subtitle>{{ mediaItem.hiredDate  | date: 'mediumDate' }}</md-card-subtitle>
   </md-card-header>
 </md-card>
+-->
+
+  <md-list-item (click)="onDelete()">
+     <img md-list-avatar src="media/shiba1.jpg" />
+     <p md-line>
+      <span> {{ mediaItem.firstName }} {{ mediaItem.lastName}} </span>
+    </p>
+     <p md-line> <span> {{ mediaItem.grade}}, {{ mediaItem.division}} </span> </p>
+     <p md-line> <span> {{ mediaItem.location }}, {{ mediaItem.phone }} </span> </p>
+     <p md-line> <span> {{ mediaItem.hiredDate  | date: 'mediumDate' }} </span> </p>
+     <button md-icon-button (click)="onDelete()">
+        <md-icon>radio_button_checked</md-icon>
+     </button>
+     <md-divider></md-divider>
+  </md-list-item>
+
