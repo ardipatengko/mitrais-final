@@ -44,9 +44,10 @@
     </ul>
     <button type="submit" [disabled]="!form.valid">Save</button>
     -->
-
+    <input mdInput placeholder="Emp Id"
+        name="empId" id="empId" formControlName="empId" size="50">
     <table class="example-full-width" cellspacing="0">
-      <tr> <p> {{ employeeUpdate }} </p>
+      <tr>
       <td><md-input-container class="example-full-width">
         <input mdInput placeholder="First name"
         name="firstName" id="firstName" formControlName="firstName" size="50">

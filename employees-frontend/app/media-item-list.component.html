@@ -11,11 +11,13 @@
         <button md-icon-button (click)="sorting($event)">
           <md-icon >sort</md-icon>
         </button>
-        <button md-button (click)="openDialog()">Launch dialog</button>
+        <button md-icon-button (click)="openDialog()">
+          <md-icon>filter_list</md-icon>
+        </button>
           You chose: {{selectedOption}}
-        
-      <md-chip> &nbsp; {{ mediaItemsCount }} &nbsp; </md-chip>
-    
+      <md-chip-list>
+        <md-chip> {{ mediaItemsCount }}  </md-chip>
+      </md-chip-list>
       <md-nav-list>
     <mw-media-item
       [ngClass]="{'medium-movies': mediaItem.medium==='Movies', 'medium-series':mediaItem.medium==='Series'}" 

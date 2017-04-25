@@ -29,6 +29,18 @@ export class MediaItemService {
         console.log(mediaItem);
       });
   }
+
+  update(employeeItem) {
+    //console.log(employeeItem);
+    let body = JSON.stringify(employeeItem);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.put('http://localhost:8080/updateEmployee', body, options)
+      .map(response => {
+        console.log("SUCCESS UPDATE")
+        console.log(employeeItem);
+      });
+  }
   
   delete(mediaItem) {
     return this.http.delete(`mediaitems/${mediaItem.id}`)

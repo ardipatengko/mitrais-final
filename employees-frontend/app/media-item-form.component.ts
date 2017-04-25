@@ -29,6 +29,7 @@ export class MediaItemFormComponent {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
+      empId: this.formBuilder.control(''),
       firstName: this.formBuilder.control('', Validators.compose([
         Validators.required,
         Validators.pattern('[\\w\\-\\s\\/]+')
@@ -78,7 +79,14 @@ export class MediaItemFormComponent {
       });
       this.isNew = true;
     }else{
+      console.log(mediaItem);
+      this.mediaItemService.update(mediaItem)
+      .subscribe(() => {
+        this.router.navigate(['/']);
+      });
+      this.isNew = true;
       console.log("UPDATE");
+      
     }
 
   }
@@ -98,6 +106,7 @@ export class MediaItemFormComponent {
     if(this.employeeForm != undefined){
        console.log(this.employeeForm);
        this.form.setValue({
+         empId: this.employeeForm.empId,
          firstName: this.employeeForm.firstName,
           lastName: this.employeeForm.lastName,
           subDiv: this.employeeForm.subDiv,
