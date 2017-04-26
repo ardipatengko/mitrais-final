@@ -4,8 +4,7 @@
     <div>{{ mediaItems | categoryList }}</div>
 </header>
 <section>
-  <div id="leftList">
-    <p>
+  <p>
     <md-input-container class="example-full-width">
           <input mdInput placeholder="Search" size="10" #search (keyup)="onKey($event, search.value)"> <!-- (input)="filterItem(search.value)" -->
         </md-input-container>
@@ -22,6 +21,8 @@
           <md-icon >delete</md-icon>
         </button>
     </p>
+  <div id="leftList">
+    
       <md-nav-list>
         <md-list>
     <mw-media-item

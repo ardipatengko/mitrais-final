@@ -124,9 +124,8 @@ export class MediaItemFormComponent {
     //this.form.setValue({firstName: this.employeeForm.firstName});
     //this.formBuilder.control['firstName'].setValue(this.employeeForm.firstname);
     //this.form.patchValue({firstName: this.employeeForm.firstName})
-    
     if(this.employeeForm != undefined){
-       console.log(this.employeeForm);
+       
        this.form.setValue({
          empId: this.employeeForm.empId,
          firstName: this.employeeForm.firstName,
