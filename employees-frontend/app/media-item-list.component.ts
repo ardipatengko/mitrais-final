@@ -109,7 +109,7 @@ filterItem(value){
       }//when nothing has typed
    this.mediaItems = Object.assign([], this.mediaItems).filter(
       mediaItem => mediaItem.lastName.toLowerCase().indexOf(value.toLowerCase()) > -1 ||
-       mediaItem.lastName.toLowerCase().indexOf(value.toLowerCase()) > -1 || 
+       mediaItem.firstName.toLowerCase().indexOf(value.toLowerCase()) > -1 || 
        (mediaItem.firstName + ' ' + mediaItem.lastName).toLowerCase().indexOf(value.toLowerCase()) > -1
    )
    this.mediaItemsCount = this.mediaItems.length;
