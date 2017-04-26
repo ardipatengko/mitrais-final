@@ -46,8 +46,10 @@ export class MediaItemService {
   }
   
   delete(mediaItem) {
-    return this.http.delete(`mediaitems/${mediaItem.id}`)
-      .map(response => {});
+    //console.log(mediaItem);
+    console.log("DELETE");
+    return this.http.delete('http://localhost:8080/deleteEmployee/'+ mediaItem.empId).toPromise().then(() => null)
+      /*.map(response => {}); */
   }
 
   getGrades() {

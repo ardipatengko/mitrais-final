@@ -53,8 +53,8 @@ public class EmployeeController {
 		employeeRepository.save(employeeFind);
 	}
 	
-	@CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping("/deleteEmployee/{emp_id}")
+	@CrossOrigin(origins = "http://localhost:3000", methods=RequestMethod.DELETE)
+    @RequestMapping(value="/deleteEmployee/{emp_id}", method=RequestMethod.DELETE)
 	public void deleteEmployeeById(@PathVariable("emp_id") Long emp_id) {
 		employeeRepository.delete(emp_id);
 	}

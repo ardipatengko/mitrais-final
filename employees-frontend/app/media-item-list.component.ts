@@ -44,6 +44,15 @@ export class MediaItemListComponent {
     this.paramsSubscription.unsubscribe();
   }
 
+  deleteItem(){
+    console.log("DELETE");
+    this.mediaItemService.delete(this.employee).then(() => this.mediaItemService.get('tes')
+      .then(employees => this.mediaItems = employees));
+    console.log(this.mediaItemsCount);
+    console.log(this.mediaItems.length);
+    this.mediaItemsCount = this.mediaItems.length;
+  }
+
   onMediaItemSelect(mediaItem) {
     this.isNew = false;
     this.employee = mediaItem;
@@ -99,9 +108,9 @@ filterItem(value){
         this.getMediaItems('tes');
       }//when nothing has typed
    this.mediaItems = Object.assign([], this.mediaItems).filter(
-      mediaItem => mediaItem.lastName.toLowerCase().indexOf(value.toLowerCase()) > -1/* ||
+      mediaItem => mediaItem.lastName.toLowerCase().indexOf(value.toLowerCase()) > -1 ||
        mediaItem.lastName.toLowerCase().indexOf(value.toLowerCase()) > -1 || 
-       (mediaItem.firstName + ' ' + mediaItem.lastName).toLowerCase().indexOf(value.toLowerCase()) > -1*/
+       (mediaItem.firstName + ' ' + mediaItem.lastName).toLowerCase().indexOf(value.toLowerCase()) > -1
    )
    this.mediaItemsCount = this.mediaItems.length;
    this.assignCopy();
