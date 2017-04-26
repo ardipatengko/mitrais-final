@@ -72,3 +72,17 @@ td{
 .active{
   color: blue;
 }
+
+button{
+  float: right;
+}
+
+#divfix{
+  bottom: 0px;
+  top: 400px;
+  right: 80px;
+  left: 410px;
+  width: 10px;
+  position: absolute;
+  z-index: 3000;
+}

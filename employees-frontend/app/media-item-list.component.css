@@ -41,7 +41,14 @@ footer .icon {
 #leftList{
   width: 30%;
   float: left;
+  position: relative;
   box-sizing: border-box;
+}
+
+#leftList p{
+  background-color: white /* #5160b5*/;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
 }
 
 #rightForm{
@@ -50,4 +57,12 @@ footer .icon {
   box-sizing: border-box;
 }
   
+#divfix{
+  bottom: 0px;
+  top: 400px;
+  right: 50px;
+  left: 230px;
+  position: absolute;
+  z-index: 3000;
+}
 

@@ -44,22 +44,21 @@
     </ul>
     <button type="submit" [disabled]="!form.valid">Save</button>
     -->
-    <input mdInput placeholder="Emp Id"
-        name="empId" id="empId" formControlName="empId" size="50">
-    <table class="example-full-width" cellspacing="0">
+
+    <table class="example-full-width" cellspacing="0" style="width: 80%;">
       <tr>
       <td><md-input-container class="example-full-width">
         <input mdInput placeholder="First name"
-        name="firstName" id="firstName" formControlName="firstName" size="50">
+        name="firstName" id="firstName" formControlName="firstName" size="100">
       </md-input-container></td>
       <td><md-input-container class="example-full-width">
         <input mdInput placeholder="Sub Division" 
-        name="subDiv" formControlName="subDiv" id="subDiv" size="50">
+        name="subDiv" formControlName="subDiv" id="subDiv" size="100">
       </md-input-container></td>
     </tr>
     </table>
 
-    <table class="example-full-width" cellspacing="0"><tr>
+    <table class="example-full-width" cellspacing="0" style="width: 80%;"><tr>
       <td><md-input-container class="example-full-width">
         <input mdInput placeholder="Last name"
         name="lastName" id="lastName" formControlName="lastName" size="50">
@@ -70,7 +69,7 @@
       </md-input-container></td>
     </tr></table>
 
-    <table class="example-full-width" cellspacing="0"><tr>
+    <table class="example-full-width" cellspacing="0" style="width: 80%;"><tr>
       <td> <md-select placeholder="Gender" class="example-full-width"
       name="gender" id="gender" formControlName="gender" style="width: 340px;">
       <md-option *ngFor="let gender of lookupLists3.genders" 
@@ -79,11 +78,11 @@
     </md-select></td>
       <td><md-input-container class="example-full-width">
         <input type="date" mdInput placeholder="Suspend Date"
-         name="suspendDate" id="suspendDate" formControlName="suspendDate" size="50">
+         name="suspendDate" id="suspendDate" formControlName="suspendDate" style="width: 340px;">
       </md-input-container></td>
     </tr></table>
 
-    <table class="example-full-width" cellspacing="0"><tr>
+    <table class="example-full-width" cellspacing="0" style="width: 80%;"><tr>
       <td><md-input-container class="example-full-width">
         <input type="date" mdInput placeholder="Date of Birth"
          name="dob" id="dob" formControlName="dob" style="width: 340px;">
@@ -94,7 +93,7 @@
       </md-input-container></td>
     </tr></table>
 
-    <table class="example-full-width" cellspacing="0"><tr>
+    <table class="example-full-width" cellspacing="0" style="width: 80%;"><tr>
       <td><md-input-container class="example-full-width">
         <input mdInput placeholder="Nationality"
          name="nationality" id="nationality" formControlName="nationality" size="38">
@@ -106,7 +105,7 @@
     </md-select></td>
     </tr></table>
 
-    <table class="example-full-width" cellspacing="0"><tr>
+    <table class="example-full-width" cellspacing="0" style="width: 80%;"><tr>
       <td><md-input-container class="example-full-width">
         <input mdInput placeholder="Marital Status"
         name="marStatus" id="marStatus" formControlName="marStatus" size="38">
@@ -119,7 +118,7 @@
     </md-select></td>
     </tr></table>
 
-    <table class="example-full-width" cellspacing="0"><tr>
+    <table class="example-full-width" cellspacing="0" style="width: 80%;"><tr>
       <td><md-input-container class="example-full-width">
         <input mdInput placeholder="Phone"
         name="phone" id="phone" formControlName="phone" size="50">
@@ -130,7 +129,7 @@
       </md-input-container></td>
     </tr></table>
 
-    <table class="example-full-width" cellspacing="0"><tr>
+    <table class="example-full-width" cellspacing="0" style="width: 80%;"><tr>
       <td><md-input-container class="example-full-width">
         <input mdInput placeholder="Location"
         name="location" id="location" formControlName="location" size="100">
@@ -138,14 +137,21 @@
     </tr></table>
 
     <table class="example-full-width" cellspacing="0">
+      <tr> </tr>
       <tr>
-        <button type="reset" md-raised-button>Cancel</button>
-        <button type="submit" md-raised-button>Save</button>
-        <button md-fab><md-icon>add</md-icon></button>
+       
       </tr>
     </table>
   
+    <footer>
+      <button type="submit" md-raised-button>Save</button>
+      <button type="reset" md-raised-button>Cancel</button>
+    </footer>
   </form>
+  <div id="divfix" (click)="addNew()">
+        <button md-fab><md-icon>add</md-icon></button>
+  </div>
 </section>
+
 <!--
 -->

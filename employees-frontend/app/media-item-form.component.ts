@@ -1,4 +1,4 @@
-import { Component, Inject, Input, SimpleChanges } from '@angular/core';
+import { Component, Inject, Input, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -18,6 +18,16 @@ export class MediaItemFormComponent {
   form;
   @Input() employeeForm;
   isNew = true;
+  @Output() changes = new EventEmitter();
+
+  onChanges() {
+    if(this.isNew){
+      
+    }else{
+      this.changes.emit(this.employeeForm);
+    }
+    
+  }
 
   constructor(
     private formBuilder: FormBuilder,
@@ -51,6 +61,11 @@ export class MediaItemFormComponent {
     });
   }
 
+  addNew(){
+    console.log("CLear");
+    this.form.reset();
+  }
+
   yearValidator(control) {
     if (control.value.trim().length === 0) {
       return null;
@@ -73,17 +88,23 @@ export class MediaItemFormComponent {
   onSubmit(mediaItem) {
     //console.log(this.employeeForm);
     if(this.isNew){
+      /*
       this.mediaItemService.add(mediaItem)
       .subscribe(() => {
         this.router.navigate(['/']);
       });
+      */
+       this.changes.emit(mediaItem);
       this.isNew = true;
     }else{
+      /*
       console.log(mediaItem);
       this.mediaItemService.update(mediaItem)
       .subscribe(() => {
         this.router.navigate(['/']);
       });
+      */
+      this.changes.emit(mediaItem);
       this.isNew = true;
       console.log("UPDATE");
       

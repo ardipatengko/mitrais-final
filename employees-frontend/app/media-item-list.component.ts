@@ -19,6 +19,7 @@ export class MediaItemListComponent {
   genderSelected = '';
 
   employee;
+  isNew = true;
 
   constructor(
     private mediaItemService: MediaItemService,
@@ -44,6 +45,7 @@ export class MediaItemListComponent {
   }
 
   onMediaItemSelect(mediaItem) {
+    this.isNew = false;
     this.employee = mediaItem;
     //console.log(mediaItem);
     /*
@@ -55,10 +57,25 @@ export class MediaItemListComponent {
       */
   }
 
+  onMediaItemChanges(mediaItem){
+    //console.log(mediaItem);
+    if(this.isNew){
+      console.log("ADD");
+      this.mediaItemService.add(mediaItem).then(() => this.mediaItemService.get('tes')
+      .then(employees => this.mediaItems = employees)); //.subscribe();
+    }else{
+      console.log("UPDATE");
+      this.isNew = true;
+      this.mediaItemService.update(mediaItem).then(() => this.mediaItemService.get('tes')
+      .then(employees => this.mediaItems = employees));
+    }
+    
+  }
+
   getMediaItems(medium) {
     //this.medium = medium;
     this.mediaItemService.get(medium)
-      .subscribe(mediaItems => {
+      .then(mediaItems => {
         this.mediaItems = mediaItems; // for filer use this : .filter(mediaItem => mediaItem.location === 'Jakarta');
         //console.log(mediaItems[2]);
         this.mediaItemsCount = this.mediaItems.length;
