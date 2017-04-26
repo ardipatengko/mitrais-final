@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import { Validators, FormBuilder } from '@angular/forms';
 import { MediaItemService } from './media-item.service';
 import {MdDialog, MdDialogRef} from '@angular/material';
 
@@ -11,7 +11,7 @@ import {MdDialog, MdDialogRef} from '@angular/material';
 })
 export class MediaItemListComponent {
   medium = '';
-  mediaItems = [];
+  public mediaItems = [];
   paramsSubscription;
   mediaItemsCount = 0;
   sortingVar = true;
@@ -111,7 +111,7 @@ filterItem(value){
       mediaItem => mediaItem.lastName.toLowerCase().indexOf(value.toLowerCase()) > -1 ||
        mediaItem.firstName.toLowerCase().indexOf(value.toLowerCase()) > -1 || 
        (mediaItem.firstName + ' ' + mediaItem.lastName).toLowerCase().indexOf(value.toLowerCase()) > -1
-   )
+   );
    this.mediaItemsCount = this.mediaItems.length;
    this.assignCopy();
     /*
@@ -157,9 +157,22 @@ filterItem(value){
        
     });
     dialogRef.afterClosed().subscribe(result => {
+     this.filterFunction(result);
+   this.mediaItemsCount = this.mediaItems.length;
       //console.log(result);
-      this.selectedOption = result;
+      //this.selectedOption = result;
     });
+  }
+
+  filterFunction(filter: any){
+     if(filter){
+       this.mediaItems = Object.assign([], this.mediaItems).filter(
+          mediaItem => mediaItem.gender.toLowerCase().indexOf(filter.gender.toLowerCase()) > -1 &&
+          mediaItem.location.toLowerCase().indexOf(filter.location.toLowerCase()) > -1
+      );
+     }else{
+       this.getMediaItems('Tes');
+     }
   }
 }
 
@@ -168,5 +181,14 @@ filterItem(value){
   templateUrl: 'app/dialog-result-example-dialog.html'
 })
 export class DialogResultExampleDialog {
-  constructor(public dialogRef: MdDialogRef<DialogResultExampleDialog>) {}
+  constructor(public dialogRef: MdDialogRef<DialogResultExampleDialog>,
+   private formBuilder: FormBuilder) {}
+  form;
+
+  ngOnInit() {
+    this.form = this.formBuilder.group({
+      gender: this.formBuilder.control(''),
+      location: this.formBuilder.control('')
+    });
+  }
 }

@@ -1,22 +1,29 @@
 <div md-dialog-container>
-    <h1 md-dialog-title>Employees Filter Base On : </h1>
-    <p> Gender 
-            <md-radio-group name="gender" id="gender" >
-                <md-radio-button value="Male" checked>Male</md-radio-button>
-                <md-radio-button value="Female">Female</md-radio-button>
-            </md-radio-group>
-    </p>
-    <br />
-    <p> Locations
-        <md-select class="example-full-width">
-            <md-option value="1">1
-            </md-option>
-            <md-option value="2">2
-            </md-option>
-        </md-select>
-    </p>
-    <div md-dialog-actions>
-        <button md-button (click)="dialogRef.close('Option 1')">Option 1</button>
-        <button md-button (click)="dialogRef.close('Option 2')">Option 2</button>
-    </div>
+    <form
+    [formGroup]="form">
+        <h1 md-dialog-title>Employees Filter Base On : </h1>
+        <p> Gender 
+                <md-radio-group name="gender" id="gender" formControlName="gender" #gender>
+                    <md-radio-button value="Male" checked>Male</md-radio-button>
+                    <md-radio-button value="Female">Female</md-radio-button>
+                </md-radio-group>
+        </p>
+        <br />
+        <p> Locations
+            <md-select class="example-full-width" name="location" id="location" formControlName="location" #location>
+                <md-option value="Jakarta">Jakarta
+                </md-option>
+                <md-option value="Bandung">Bandung
+                </md-option>
+                <md-option value="Bali">Bali
+                </md-option>
+                <md-option value="Yogyakarta">Yogyakarta
+                </md-option>
+            </md-select>
+        </p>
+        <div md-dialog-actions>
+            <button md-button (click)="dialogRef.close(form.value)">Filter</button>
+            <button md-button (click)="dialogRef.close()">Exit</button>
+        </div>
+    </form>
 </div>

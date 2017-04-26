@@ -96,6 +96,7 @@ export class MediaItemFormComponent {
       */
        this.changes.emit(mediaItem);
       this.isNew = true;
+      this.form.reset();
     }else{
       /*
       console.log(mediaItem);
@@ -107,7 +108,7 @@ export class MediaItemFormComponent {
       this.changes.emit(mediaItem);
       this.isNew = true;
       console.log("UPDATE");
-      
+      this.form.reset();
     }
 
   }
