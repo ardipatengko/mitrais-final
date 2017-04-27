@@ -76,6 +76,7 @@ public class EmployeesBackendApplication {
 		d.setDivisionCode("SWD Red");
 		e.setDivision("SWD Red");
 		//divisionRepository.save(d);
+		e.setPhoto("shiba1.jpg");
 		employeeRepository.save(e);
 		
 		Employee e2 = new Employee();
@@ -107,6 +108,7 @@ public class EmployeesBackendApplication {
 		d2.setDivisionCode("SWD Blue");
 		e2.setDivision("SWD Blue");
 		//divisionRepository.save(d2);
+		e2.setPhoto("shiba1.jpg");
 		employeeRepository.save(e2);
 		
 		
@@ -134,6 +136,7 @@ public class EmployeesBackendApplication {
 		d3.setDivisionCode("TnD");
 		e3.setDivision("TnD");
 		//divisionRepository.save(d3);
+		e3.setPhoto("shiba1.jpg");
 		employeeRepository.save(e3);
 		
 		Employee e4 = new Employee();
@@ -154,6 +157,7 @@ public class EmployeesBackendApplication {
 		e4.setGrade("PG - Programmer");
 		Division d4 = divisionRepository.findByDivId(3);
 		e4.setDivision("TnD");
+		e4.setPhoto("shiba1.jpg");
 		employeeRepository.save(e4);
 		
 		Employee e5 = new Employee();
@@ -174,6 +178,7 @@ public class EmployeesBackendApplication {
 		e5.setGrade("PG - Programmer");
 		Division d5 = divisionRepository.findByDivId(3);
 		e5.setDivision("SWD Red");
+		e5.setPhoto("shiba1.jpg");
 		employeeRepository.save(e5);
 		
 		Employee e6 = new Employee();
@@ -192,6 +197,7 @@ public class EmployeesBackendApplication {
 		e6.setLocation("Bandung");
 		e6.setGrade("JP - Junior Programmer");
 		e6.setDivision("SWD Blue");
+		e6.setPhoto("shiba1.jpg");
 		employeeRepository.save(e6);
 		
 		Employee e7 = new Employee();
@@ -210,6 +216,7 @@ public class EmployeesBackendApplication {
 		e7.setLocation("Jakarta");
 		e7.setGrade("SM - Senior Manager");
 		e7.setDivision("TnD");
+		e7.setPhoto("shiba1.jpg");
 		employeeRepository.save(e7);
 		
 		Employee e8 = new Employee();
@@ -228,6 +235,7 @@ public class EmployeesBackendApplication {
 		e8.setLocation("Bandung");
 		e8.setGrade("PG - Programmer");
 		e8.setDivision("SWD Blue");
+		e8.setPhoto("shiba1.jpg");
 		employeeRepository.save(e8);
 		
 		Employee e9 = new Employee();
@@ -246,6 +254,7 @@ public class EmployeesBackendApplication {
 		e9.setLocation("Yogyakarta");
 		e9.setGrade("FA - Finance & Accounting");
 		e9.setDivision("SWD Blue");
+		e9.setPhoto("shiba1.jpg");
 		employeeRepository.save(e9);
 		
 		Employee e10 = new Employee();
@@ -264,6 +273,45 @@ public class EmployeesBackendApplication {
 		e10.setLocation("Bali");
 		e10.setGrade("FA - Finance & Accounting");
 		e10.setDivision("SWD Blue");
+		e10.setPhoto("shiba1.jpg");
 		employeeRepository.save(e10);
+		
+		Employee e11 = new Employee();
+		e11.setFirstName("Linda");
+		e11.setLastName("Fajarsari");
+		e11.setGender("Female");
+		e11.setDob(new Date(0));
+		e11.setNationality("Indonesia");
+		e11.setMarStatus("Married");
+		e11.setPhone("+6285242312512");
+		e11.setSubDiv("Mitrais Jasper Reports Bootcamp");
+		e11.setStatus("Employee");
+		e11.setSuspendDate(new Date(1000));
+		e11.setHiredDate(new Date(500));
+		e11.setEmail("linda.fajarsari@mitrais.com");
+		e11.setLocation("Bandung");
+		e11.setGrade("JP - Junior Programmer");
+		e11.setDivision("SWD Blue");
+		e11.setPhoto("shiba1.jpg");
+		employeeRepository.save(e11);
+		
+		Employee e12 = new Employee();
+		e12.setFirstName("George");
+		e12.setLastName("Gates");
+		e12.setGender("Male");
+		e12.setDob(new Date(0));
+		e12.setNationality("American");
+		e12.setMarStatus("Single");
+		e12.setPhone("+6285242312512");
+		e12.setSubDiv("-");
+		e12.setStatus("Employee");
+		e12.setSuspendDate(new Date(1000));
+		e12.setHiredDate(new Date(500));
+		e12.setEmail("george.gates@mitrais.com");
+		e12.setLocation("Jakarta");
+		e12.setGrade("PG - Programmer");
+		e12.setDivision("SWD Blue");
+		e12.setPhoto("shiba1.jpg");
+		employeeRepository.save(e12);
 	}
 }

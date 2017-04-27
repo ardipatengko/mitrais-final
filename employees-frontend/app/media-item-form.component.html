@@ -44,7 +44,7 @@
     </ul>
     <button type="submit" [disabled]="!form.valid">Save</button>
     -->
-<img md-list-avatar class="foto" src="media/shiba1.jpg" />
+<img md-list-avatar class="foto" src="media/{{ photoStart }}" />
     <table class="example-full-width" cellspacing="0" style="width: 80%;">
       <tr>
       <td><md-input-container class="example-full-width">
@@ -151,11 +151,14 @@
        <button type="reset" md-raised-button>Cancel</button> 
      </div>
      
-     <div id="fotoimage">
-        <input type="file" accept="image/*" #file hidden>
-        <button type="file" md-mini-fab (click)="file.click()"><md-icon>add_a_photo</md-icon></button>
-  </div>
+     <div class="fotoimage">
+        <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".png,.jpeg,.jpg" #file hidden>
+        
+      </div>
   </form>
+  <div class="fotoimage">
+    <button md-mini-fab (click)="file.click()"><md-icon>add_a_photo</md-icon></button>
+  </div>
   <div id="divfix" (click)="addNew()">
         <button md-mini-fab><md-icon>add</md-icon></button>
   </div>

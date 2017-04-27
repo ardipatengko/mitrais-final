@@ -19,6 +19,9 @@ export class MediaItemFormComponent {
   @Input() employeeForm;
   isNew = true;
   @Output() changes = new EventEmitter();
+  fileList: FileList;
+  file: File;
+  photoStart = 'shiba1.jpg';
 
   onChanges() {
     if(this.isNew){
@@ -57,7 +60,8 @@ export class MediaItemFormComponent {
       division: this.formBuilder.control(''),
       phone: this.formBuilder.control(''),
       email: this.formBuilder.control(''),
-      location: this.formBuilder.control('')
+      location: this.formBuilder.control(''),
+      photo: this.formBuilder.control('')
     });
   }
 
@@ -105,6 +109,7 @@ export class MediaItemFormComponent {
         this.router.navigate(['/']);
       });
       */
+      mediaItem.photo = this.photoStart;
       this.changes.emit(mediaItem);
       this.isNew = true;
       console.log("UPDATE");
@@ -142,9 +147,21 @@ export class MediaItemFormComponent {
           division: this.employeeForm.division,
           phone: this.employeeForm.phone,
           email: this.employeeForm.email,
-          location: this.employeeForm.location
+          location: this.employeeForm.location,
+          photo: this.photoStart;
         });
         this.isNew = false;
+    }
+  }
+
+  fileChange(event){
+    this.fileList = event.target.files;
+    if(this.fileList.length > 0) {
+        this.file = this.fileList[0];
+        let formData:FormData = new FormData();
+        formData.append('uploadFile', this.file, this.file.name);
+        this.photoStart = this.file.name;
+        console.log(this.photoStart);
     }
   }
 }

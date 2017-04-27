@@ -71,6 +71,9 @@ public class Employee {
 	//@JoinColumn(name = "div_id")
 	//private Division division;
 	private String division;
+	
+	@Column(name = "photo", nullable = false)
+	private String photo;
 
 	public long getEmpId() {
 		return empId;
@@ -198,6 +201,14 @@ public class Employee {
 
 	public void setDivision(String division) {
 		this.division = division;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 	
 	

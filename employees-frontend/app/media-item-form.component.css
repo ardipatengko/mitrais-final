@@ -112,7 +112,7 @@ button{
   float: right;
 }
 
-#fotoimage{
+.fotoimage{
   position: absolute;
   bottom: 0px;
   top: 140px;

@@ -49,7 +49,8 @@ public class EmployeeController {
 		employeeFind.setEmail(employee.getEmail());
 		employeeFind.setLocation(employee.getLocation());
 		employeeFind.setGrade(employee.getGrade());
-		employee.setDivision(employee.getDivision());
+		employeeFind.setDivision(employee.getDivision());
+		employeeFind.setPhoto(employee.getPhoto());
 		employeeRepository.save(employeeFind);
 	}
 	

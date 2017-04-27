@@ -34,7 +34,7 @@
 -->
 
   <md-list-item (click)="onSelect()"  [ngClass]="{'emp-selected': isSelected===true}" >
-     <img md-list-avatar src="media/shiba1.jpg" />
+     <img md-list-avatar src="media/{{ mediaItem.photo }}" />
      <p md-line>
       <span> {{ mediaItem.firstName }} {{ mediaItem.lastName}} </span>
     </p>
