@@ -85,3 +85,7 @@ h2 {
 .example-card{
   width: 100%;
 }
+
+.emp-selected{
+  background-color: grey;
+}

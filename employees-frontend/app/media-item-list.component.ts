@@ -20,6 +20,7 @@ export class MediaItemListComponent {
 
   employee;
   isNew = true;
+  selectedDelete = false;
 
   constructor(
     private mediaItemService: MediaItemService,
@@ -44,13 +45,16 @@ export class MediaItemListComponent {
     this.paramsSubscription.unsubscribe();
   }
 
+  onWantToDelete(value){
+    this.selectedDelete = value;
+    this.mediaItemsCount = this.mediaItems.length;
+  }
+
   deleteItem(){
     console.log("DELETE");
     this.mediaItemService.delete(this.employee).then(() => this.mediaItemService.get('tes')
-      .then(employees => this.mediaItems = employees));
-    console.log(this.mediaItemsCount);
-    console.log(this.mediaItems.length);
-    this.mediaItemsCount = this.mediaItems.length;
+      .then(employees => this.mediaItems = employees)).then(() => this.mediaItemsCount = this.mediaItems.length);   
+    this.selectedDelete = false;
   }
 
   onMediaItemSelect(mediaItem) {

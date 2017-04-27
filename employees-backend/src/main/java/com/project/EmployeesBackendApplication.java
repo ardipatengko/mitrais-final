@@ -211,5 +211,59 @@ public class EmployeesBackendApplication {
 		e7.setGrade("SM - Senior Manager");
 		e7.setDivision("TnD");
 		employeeRepository.save(e7);
+		
+		Employee e8 = new Employee();
+		e8.setFirstName("Daniel");
+		e8.setLastName("Sallao");
+		e8.setGender("Male");
+		e8.setDob(new Date(0));
+		e8.setNationality("Indonesian");
+		e8.setMarStatus("Single");
+		e8.setPhone("+6285242312512");
+		e8.setSubDiv("BTPN Tester");
+		e8.setStatus("Employee");
+		e8.setSuspendDate(new Date(1000));
+		e8.setHiredDate(new Date(500));
+		e8.setEmail("daniel.sallao@mitrais.com");
+		e8.setLocation("Bandung");
+		e8.setGrade("PG - Programmer");
+		e8.setDivision("SWD Blue");
+		employeeRepository.save(e8);
+		
+		Employee e9 = new Employee();
+		e9.setFirstName("Isyana");
+		e9.setLastName("Sarasvati");
+		e9.setGender("Female");
+		e9.setDob(new Date(0));
+		e9.setNationality("Australian");
+		e9.setMarStatus("Married");
+		e9.setPhone("+6285242312512");
+		e9.setSubDiv("Salary Division");
+		e9.setStatus("Employee");
+		e9.setSuspendDate(new Date(1000));
+		e9.setHiredDate(new Date(500));
+		e9.setEmail("isyana.sarasvati@mitrais.com");
+		e9.setLocation("Yogyakarta");
+		e9.setGrade("FA - Finance & Accounting");
+		e9.setDivision("SWD Blue");
+		employeeRepository.save(e9);
+		
+		Employee e10 = new Employee();
+		e10.setFirstName("Dian Sastro");
+		e10.setLastName("Wardoyo");
+		e10.setGender("Female");
+		e10.setDob(new Date(0));
+		e10.setNationality("American");
+		e10.setMarStatus("Married");
+		e10.setPhone("+6285242312512");
+		e10.setSubDiv("Salary Division");
+		e10.setStatus("Employee");
+		e10.setSuspendDate(new Date(1000));
+		e10.setHiredDate(new Date(500));
+		e10.setEmail("diansastro.wardoyo@mitrais.com");
+		e10.setLocation("Bali");
+		e10.setGrade("FA - Finance & Accounting");
+		e10.setDivision("SWD Blue");
+		employeeRepository.save(e10);
 	}
 }

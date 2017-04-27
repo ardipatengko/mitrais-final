@@ -44,6 +44,11 @@ export const lookupLists = {
         gradeId: 3,
         grade: "Senior Manager",
         gradeCode: "SM"
+      },
+      {
+        gradeId: 4,
+        grade: "Finance & Accounting",
+        gradeCode: "FA"
       }
   ]
 };
@@ -64,6 +69,11 @@ export const lookupLists2 = {
         divId: 3,
         division: "Training & Development",
         divisionCode: "TnD"
+      },
+      {
+        divId: 4,
+        division: "Finance & Accounting",
+        divisionCode: "FA"
       }
   ]
 };

@@ -33,7 +33,7 @@
 </md-card>
 -->
 
-  <md-list-item (click)="onSelect()">
+  <md-list-item (click)="onSelect()"  [ngClass]="{'emp-selected': isSelected===true}" >
      <img md-list-avatar src="media/shiba1.jpg" />
      <p md-line>
       <span> {{ mediaItem.firstName }} {{ mediaItem.lastName}} </span>
@@ -43,6 +43,7 @@
      <p md-line> <span> {{ mediaItem.hiredDate  | date: 'mediumDate' }} </span> </p>
      <button md-icon-button (click)="onSelect()">
         <md-icon>radio_button_checked</md-icon>
+        <i class="material-icons">keyboard_arrow_right</i>
      </button>
      
   </md-list-item>

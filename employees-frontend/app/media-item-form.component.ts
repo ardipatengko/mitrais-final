@@ -94,7 +94,7 @@ export class MediaItemFormComponent {
         this.router.navigate(['/']);
       });
       */
-       this.changes.emit(mediaItem);
+      this.changes.emit(mediaItem);
       this.isNew = true;
       this.form.reset();
     }else{

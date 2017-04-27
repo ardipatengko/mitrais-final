@@ -1,7 +1,7 @@
 :host {
   display: block;
   flex-direction: column;
-  padding: 0 10px;
+  padding: 0 0px;
   margin-bottom: 20px;
 }
 header {
@@ -45,6 +45,7 @@ footer .icon {
   box-sizing: border-box;
   height: 666px;
   overflow: scroll;
+  clear: both;
 }
 
 #leftList p{
@@ -67,4 +68,52 @@ footer .icon {
   position: absolute;
   z-index: 3000;
 }
+
+#searchfilterdelete{
+  background: #5b6bc5;
+  color: white;
+  width: 30%;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  padding: 0px;
+  float: left;
+}
+
+#searchfilterdelete input[type=text] {
+    background-color: white;
+    
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding-left: 40px;
+    border: none;
+    outline: none;
+    background-color: #5b6bc5;
+    color: white;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: white;
+}
+
+#iconmenu{
+  background: #5b6bc5;
+  color: white;
+  width: 69.9%;
+  padding: 0 0 0 0;
+  margin: 0 0 0 0;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  padding: 0px;
+  float: left;
+  border-left: 1px solid white;
+}
+
+.iconmenuclass{
+  padding-left: 65px;
+  padding-right: 65px;
+}
+
 
