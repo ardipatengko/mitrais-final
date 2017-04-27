@@ -44,7 +44,7 @@
     </ul>
     <button type="submit" [disabled]="!form.valid">Save</button>
     -->
-
+<img md-list-avatar class="foto" src="media/shiba1.jpg" />
     <table class="example-full-width" cellspacing="0" style="width: 80%;">
       <tr>
       <td><md-input-container class="example-full-width">
@@ -142,7 +142,7 @@
        
       </tr>
     </table>
-  
+   
     <footer>
      
     </footer>
@@ -150,9 +150,14 @@
        <button type="submit" md-raised-button>Save</button>
        <button type="reset" md-raised-button>Cancel</button> 
      </div>
+     
   </form>
   <div id="divfix" (click)="addNew()">
         <button md-mini-fab><md-icon>add</md-icon></button>
+  </div>
+
+  <div id="fotoimage">
+        <button type="file" md-mini-fab><md-icon>add_a_photo</md-icon></button>
   </div>
 </section>
 

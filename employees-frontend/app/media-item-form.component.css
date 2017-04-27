@@ -103,3 +103,21 @@ button{
   margin: 0px 15px 0px 10px;
 }
 
+.foto{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  padding: 0px;
+  margin: 10px 50px 0 0;
+  float: right;
+}
+
+#fotoimage{
+  position: absolute;
+  bottom: 0px;
+  top: 140px;
+  right: 80px;
+  left: 1290px;
+  width: 10px;
+}
+
