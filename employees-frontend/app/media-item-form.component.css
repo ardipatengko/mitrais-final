@@ -86,3 +86,20 @@ button{
   position: absolute;
   z-index: 3000;
 }
+
+#footerdiv{
+  background-color: #5b6bc5;
+  height: 40px;
+  padding-top: 5px;
+  margin-right: 10px;
+}
+
+#footerdiv table.example-full-width tbody tr td{
+  padding: 0px;
+}
+
+#footerdiv button{
+  padding: 0px 0 0 0px;
+  margin: 0px 15px 0px 10px;
+}
+

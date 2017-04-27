@@ -75,12 +75,12 @@ export class MediaItemListComponent {
     if(this.isNew){
       console.log("ADD");
       this.mediaItemService.add(mediaItem).then(() => this.mediaItemService.get('tes')
-      .then(employees => this.mediaItems = employees)); //.subscribe();
+      .then(employees => this.mediaItems = employees)).then(() => this.mediaItemsCount = this.mediaItems.length);; //.subscribe();
     }else{
       console.log("UPDATE");
       this.isNew = true;
       this.mediaItemService.update(mediaItem).then(() => this.mediaItemService.get('tes')
-      .then(employees => this.mediaItems = employees));
+      .then(employees => this.mediaItems = employees)).then(() => this.mediaItemsCount = this.mediaItems.length);;
     }
     
   }
