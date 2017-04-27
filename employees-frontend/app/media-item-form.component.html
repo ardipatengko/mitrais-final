@@ -151,14 +151,16 @@
        <button type="reset" md-raised-button>Cancel</button> 
      </div>
      
+     <div id="fotoimage">
+        <input type="file" accept="image/*" #file hidden>
+        <button type="file" md-mini-fab (click)="file.click()"><md-icon>add_a_photo</md-icon></button>
+  </div>
   </form>
   <div id="divfix" (click)="addNew()">
         <button md-mini-fab><md-icon>add</md-icon></button>
   </div>
 
-  <div id="fotoimage">
-        <button type="file" md-mini-fab><md-icon>add_a_photo</md-icon></button>
-  </div>
+  
 </section>
 
 <!--
