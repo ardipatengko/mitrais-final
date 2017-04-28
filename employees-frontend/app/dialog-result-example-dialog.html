@@ -11,13 +11,8 @@
         <br />
         <p> Locations
             <md-select class="example-full-width" name="location" id="location" formControlName="location" #location>
-                <md-option value="Jakarta">Jakarta
-                </md-option>
-                <md-option value="Bandung">Bandung
-                </md-option>
-                <md-option value="Bali">Bali
-                </md-option>
-                <md-option value="Yogyakarta">Yogyakarta
+                <md-option *ngFor="let location of locations" 
+                value="{{ location.locationName }}">{{ location.locationName }}
                 </md-option>
             </md-select>
         </p>

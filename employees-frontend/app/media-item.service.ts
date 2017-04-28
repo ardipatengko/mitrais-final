@@ -18,13 +18,20 @@ export class MediaItemService {
         return response.json();
       });*/
   }
+
+  getLocation() {
+    return this.http.get('http://localhost:8080/locationAll/').map(response => {
+      //console.log(response.json());
+      return response.json(); 
+    });
+  }
   
   add(mediaItem) {
-    console.log(mediaItem);
+    //console.log(mediaItem.location);
     let body = JSON.stringify(mediaItem);
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post('http://localhost:8080/saveEmployee', body, options).toPromise()
+    return this.http.post('http://localhost:8080/saveEmployee/' + mediaItem.locationId, body, options).toPromise()
     .then(() => null)
       /*.map(response => {
         console.log("SUCCESS ADD")
@@ -37,10 +44,10 @@ export class MediaItemService {
     //let body = photo;
     //let headers = new Headers({ 'Content-Type': 'multipart/form-data', 'boundary' : 'HereGoes' });
     //let options = new RequestOptions({ headers: headers });
-    return this.http.post('http://localhost:8080/uploadImage', photo)
-      .map(response => {
+    return this.http.post('http://localhost:8080/uploadImage', photo).toPromise().then();
+      /*.map(response => {
         console.log("SUCCESS UPLOAD")
-      });
+      }); */
   }
 
   update(employeeItem) {
@@ -48,7 +55,7 @@ export class MediaItemService {
     let body = JSON.stringify(employeeItem);
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this.http.put('http://localhost:8080/updateEmployee', body, options).toPromise()
+    return this.http.put('http://localhost:8080/updateEmployee/' + employeeItem.locationId, body, options).toPromise()
     .then(() => null);
       /*.map(response => {
         console.log("SUCCESS UPDATE")

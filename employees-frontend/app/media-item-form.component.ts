@@ -23,6 +23,7 @@ export class MediaItemFormComponent {
   fileList: FileList;
   file: File;
   photoStart = 'shiba1.jpg';
+  public locations;
 
   onChanges() {
     if(this.isNew){
@@ -61,9 +62,13 @@ export class MediaItemFormComponent {
       division: this.formBuilder.control(''),
       phone: this.formBuilder.control(''),
       email: this.formBuilder.control(''),
-      location: this.formBuilder.control(''),
+      locationId: this.formBuilder.control(''),
       photo: this.formBuilder.control('')
     });
+
+    this.mediaItemService.getLocation().subscribe(response => {
+        this.locations = response;
+      });
   }
 
   addNew(){
@@ -106,8 +111,8 @@ export class MediaItemFormComponent {
       this.form.reset();
       this.photoStart = 'shiba1.jpg';
     }else{
-      /*
-      console.log(mediaItem);
+      
+      console.log(mediaItem);/*
       this.mediaItemService.update(mediaItem)
       .subscribe(() => {
         this.router.navigate(['/']);
@@ -152,7 +157,7 @@ export class MediaItemFormComponent {
           division: this.employeeForm.division,
           phone: this.employeeForm.phone,
           email: this.employeeForm.email,
-          location: this.employeeForm.location,
+          locationId: this.employeeForm.location.locationId,
           photo: this.employeeForm.photo
         });
         this.photoStart = this.employeeForm.photo;
@@ -166,8 +171,9 @@ export class MediaItemFormComponent {
         this.file = this.fileList[0];
         const formData:any = new FormData(document.getElementsByTagName('form')[0]);
         formData.append('photo', this.file, this.file.name);
-        this.upload.emit(formData);
+        //this.upload.emit(formData);
+        this.mediaItemService.upload(formData).then(response => this.photoStart = this.file.name);  
     }
-    this.photoStart = this.file.name;
+    
   }
 }

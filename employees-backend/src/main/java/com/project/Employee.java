@@ -59,8 +59,9 @@ public class Employee {
 	@Column(name = "email", nullable = false)
 	private String email;
 	
-	@Column(name = "location", nullable = false)
-	private String location;
+	@ManyToOne
+	@JoinColumn(name = "location_id")
+	private Location location;
 	
 	//@ManyToOne
 	//@JoinColumn(name = "grade_id")
@@ -179,11 +180,11 @@ public class Employee {
 		this.email = email;
 	}
 
-	public String getLocation() {
+	public Location getLocation() {
 		return location;
 	}
 
-	public void setLocation(String location) {
+	public void setLocation(Location location) {
 		this.location = location;
 	}
 

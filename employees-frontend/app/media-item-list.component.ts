@@ -85,7 +85,7 @@ export class MediaItemListComponent {
   }
 
   onUpload(photo){
-    this.mediaItemService.upload(photo).subscribe();   
+    //this.mediaItemService.upload(photo).subscribe();   
   }
 
   getMediaItems(medium) {
@@ -93,7 +93,7 @@ export class MediaItemListComponent {
     this.mediaItemService.get(medium)
       .then(mediaItems => {
         this.mediaItems = mediaItems; // for filer use this : .filter(mediaItem => mediaItem.location === 'Jakarta');
-        //console.log(mediaItems[2]);
+        //console.log(mediaItems);
         this.mediaItemsCount = this.mediaItems.length;
       });
   }
@@ -104,7 +104,7 @@ export class MediaItemListComponent {
 filterItem(value){
    if(!value) this.assignCopy(); //when nothing has typed
    this.mediaItems = Object.assign([], this.mediaItems).filter(
-      mediaItem => mediaItem.location.toLowerCase().indexOf(value.toLowerCase()) > -1
+      mediaItem => mediaItem.location.locationName.toLowerCase().indexOf(value.toLowerCase()) > -1
    )
 }
 
@@ -175,7 +175,7 @@ filterItem(value){
      if(filter){
        this.mediaItems = Object.assign([], this.mediaItems).filter(
           mediaItem => mediaItem.gender.toLowerCase().indexOf(filter.gender.toLowerCase()) > -1 &&
-          mediaItem.location.toLowerCase().indexOf(filter.location.toLowerCase()) > -1
+          mediaItem.location.locationName.toLowerCase().indexOf(filter.location.toLowerCase()) > -1
       );
      }else{
        this.getMediaItems('Tes');
@@ -189,13 +189,21 @@ filterItem(value){
 })
 export class DialogResultExampleDialog {
   constructor(public dialogRef: MdDialogRef<DialogResultExampleDialog>,
-   private formBuilder: FormBuilder) {}
+   private formBuilder: FormBuilder,
+   private mediaItemService: MediaItemService) {}
   form;
+  public locations;
 
   ngOnInit() {
     this.form = this.formBuilder.group({
       gender: this.formBuilder.control(''),
       location: this.formBuilder.control('')
     });
+
+    this.mediaItemService.getLocation().subscribe(response => {
+        this.locations = response;
+        console.log(this.locations);
+      });
+      
   }
 }

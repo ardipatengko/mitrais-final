@@ -22,6 +22,8 @@ public class EmployeesBackendApplication {
 	private GradeRepository gradeRepository;
 	@Autowired
 	private EmployeeRepository employeeRepository;
+	@Autowired
+	private LocationRepository locationRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(EmployeesBackendApplication.class, args);
@@ -52,6 +54,20 @@ public class EmployeesBackendApplication {
 	        }
 	
 	public void addData(){
+		Location l = new Location();
+		l.setLocationName("Bali");
+		locationRepository.save(l);
+		Location l2 = new Location();
+		l2.setLocationName("Yogyakarta");
+		locationRepository.save(l2);
+		Location l3 = new Location();
+		l3.setLocationName("Bandung");
+		locationRepository.save(l3);
+		Location l4 = new Location();
+		l4.setLocationName("Jakarta");
+		locationRepository.save(l4);
+		
+		
 		Employee e = new Employee();
 		e.setFirstName("Milla");
 		e.setLastName("Khan");
@@ -65,7 +81,7 @@ public class EmployeesBackendApplication {
 		e.setSuspendDate(new Date(1000));
 		e.setHiredDate(new Date(500));
 		e.setEmail("person1@mitrais.com");
-		e.setLocation("Bandung");
+		e.setLocation(locationRepository.findOne((long) 3));
 		Grade g = new Grade();//gradeRepository
 		g.setGrade("Junior Programmer");
 		g.setGradeCode("JP");
@@ -92,7 +108,7 @@ public class EmployeesBackendApplication {
 		e2.setSuspendDate(new Date(1000));
 		e2.setHiredDate(new Date(500));
 		e2.setEmail("person2@mitrais.com");
-		e2.setLocation("Jakarta");
+		e2.setLocation(locationRepository.findOne((long) 4));
 		//Grade g = gradeRepository.findByGradeId(1);
 		//gradeRepository.save(g);
 		Grade g2 = new Grade();//gradeRepository
@@ -125,7 +141,7 @@ public class EmployeesBackendApplication {
 		e3.setSuspendDate(new Date(1000));
 		e3.setHiredDate(new Date(500));
 		e3.setEmail("person3@mitrais.com");
-		e3.setLocation("Bali");
+		e3.setLocation(locationRepository.findOne((long) 1));
 		Grade g3 = new Grade();//gradeRepository
 		g3.setGrade("Senior Manager");
 		g3.setGradeCode("SM");
@@ -152,7 +168,7 @@ public class EmployeesBackendApplication {
 		e4.setSuspendDate(new Date(1000));
 		e4.setHiredDate(new Date(500));
 		e4.setEmail("person4@mitrais.com");
-		e4.setLocation("Yogyakarta");
+		e4.setLocation(locationRepository.findOne((long) 2));
 		Grade g4 = gradeRepository.findByGradeId(2);
 		e4.setGrade("PG - Programmer");
 		Division d4 = divisionRepository.findByDivId(3);
@@ -173,7 +189,7 @@ public class EmployeesBackendApplication {
 		e5.setSuspendDate(new Date(1000));
 		e5.setHiredDate(new Date(500));
 		e5.setEmail("marselsampe.asang@mitrais.com");
-		e5.setLocation("Bali");
+		e5.setLocation(locationRepository.findOne((long) 1));
 		Grade g5 = gradeRepository.findByGradeId(2);
 		e5.setGrade("PG - Programmer");
 		Division d5 = divisionRepository.findByDivId(3);
@@ -194,7 +210,7 @@ public class EmployeesBackendApplication {
 		e6.setSuspendDate(new Date(1000));
 		e6.setHiredDate(new Date(500));
 		e6.setEmail("nobsianusrigenessampe.asang@mitrais.com");
-		e6.setLocation("Bandung");
+		e6.setLocation(locationRepository.findOne((long) 3));
 		e6.setGrade("JP - Junior Programmer");
 		e6.setDivision("SWD Blue");
 		e6.setPhoto("shiba1.jpg");
@@ -213,7 +229,7 @@ public class EmployeesBackendApplication {
 		e7.setSuspendDate(new Date(1000));
 		e7.setHiredDate(new Date(500));
 		e7.setEmail("tirtayansensampe.asang@mitrais.com");
-		e7.setLocation("Jakarta");
+		e7.setLocation(locationRepository.findOne((long) 4));
 		e7.setGrade("SM - Senior Manager");
 		e7.setDivision("TnD");
 		e7.setPhoto("shiba1.jpg");
@@ -232,7 +248,7 @@ public class EmployeesBackendApplication {
 		e8.setSuspendDate(new Date(1000));
 		e8.setHiredDate(new Date(500));
 		e8.setEmail("daniel.sallao@mitrais.com");
-		e8.setLocation("Bandung");
+		e8.setLocation(locationRepository.findOne((long) 3));
 		e8.setGrade("PG - Programmer");
 		e8.setDivision("SWD Blue");
 		e8.setPhoto("shiba1.jpg");
@@ -251,7 +267,7 @@ public class EmployeesBackendApplication {
 		e9.setSuspendDate(new Date(1000));
 		e9.setHiredDate(new Date(500));
 		e9.setEmail("isyana.sarasvati@mitrais.com");
-		e9.setLocation("Yogyakarta");
+		e9.setLocation(locationRepository.findOne((long) 2));
 		e9.setGrade("FA - Finance & Accounting");
 		e9.setDivision("SWD Blue");
 		e9.setPhoto("shiba1.jpg");
@@ -270,7 +286,7 @@ public class EmployeesBackendApplication {
 		e10.setSuspendDate(new Date(1000));
 		e10.setHiredDate(new Date(500));
 		e10.setEmail("diansastro.wardoyo@mitrais.com");
-		e10.setLocation("Bali");
+		e10.setLocation(locationRepository.findOne((long) 1));
 		e10.setGrade("FA - Finance & Accounting");
 		e10.setDivision("SWD Blue");
 		e10.setPhoto("shiba1.jpg");
@@ -289,7 +305,7 @@ public class EmployeesBackendApplication {
 		e11.setSuspendDate(new Date(1000));
 		e11.setHiredDate(new Date(500));
 		e11.setEmail("linda.fajarsari@mitrais.com");
-		e11.setLocation("Bandung");
+		e11.setLocation(locationRepository.findOne((long) 3));
 		e11.setGrade("JP - Junior Programmer");
 		e11.setDivision("SWD Blue");
 		e11.setPhoto("shiba1.jpg");
@@ -308,10 +324,11 @@ public class EmployeesBackendApplication {
 		e12.setSuspendDate(new Date(1000));
 		e12.setHiredDate(new Date(500));
 		e12.setEmail("george.gates@mitrais.com");
-		e12.setLocation("Jakarta");
+		e12.setLocation(locationRepository.findOne((long) 4));
 		e12.setGrade("PG - Programmer");
 		e12.setDivision("SWD Blue");
 		e12.setPhoto("shiba1.jpg");
 		employeeRepository.save(e12);
+
 	}
 }

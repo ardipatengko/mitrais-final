@@ -20,6 +20,8 @@ import org.springframework.web.multipart.MultipartFile;
 public class EmployeeController {
 	@Autowired
 	private EmployeeRepository employeeRepository;
+	@Autowired
+	private LocationRepository locationRepository;
 	
 	@CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/employeeAll")
@@ -28,16 +30,18 @@ public class EmployeeController {
 	}
 	
 	@CrossOrigin(origins = "http://localhost:3000", methods=RequestMethod.POST)
-    @RequestMapping(value="/saveEmployee", method=RequestMethod.POST, consumes="application/json")
-	public void saveEmployee(@RequestBody Employee employee) {
+    @RequestMapping(value="/saveEmployee/{location_id}", method=RequestMethod.POST, consumes="application/json")
+	public void saveEmployee(@RequestBody Employee employee, @PathVariable("location_id") Long location_id) {
+		Location location = locationRepository.findOne(location_id);
+		employee.setLocation(location);
 		employeeRepository.save(employee);
-		//System.out.println(employee.getFirstName());
-		//return employee;
+
 	}
 	
 	@CrossOrigin(origins = "http://localhost:3000", methods=RequestMethod.PUT)
-    @RequestMapping(value="/updateEmployee", method=RequestMethod.PUT, consumes="application/json")
-	public void updateEmployee(@RequestBody Employee employee) {
+    @RequestMapping(value="/updateEmployee/{location_id}", method=RequestMethod.PUT, consumes="application/json")
+	public void updateEmployee(@RequestBody Employee employee, @PathVariable("location_id") Long location_id) {
+		Location location = locationRepository.findOne(location_id);
 		Employee employeeFind = employeeRepository.findByempId(employee.getEmpId());
 		//employeeRepository.save(employee);
 		//System.out.println(employee.getEmpId());
@@ -53,7 +57,7 @@ public class EmployeeController {
 		employeeFind.setSuspendDate(employee.getSuspendDate());
 		employeeFind.setHiredDate(employee.getHiredDate());
 		employeeFind.setEmail(employee.getEmail());
-		employeeFind.setLocation(employee.getLocation());
+		employeeFind.setLocation(location);
 		employeeFind.setGrade(employee.getGrade());
 		employeeFind.setDivision(employee.getDivision());
 		employeeFind.setPhoto(employee.getPhoto());
@@ -77,7 +81,6 @@ public class EmployeeController {
             extension = ".png";
 		String filename = UUID.randomUUID().toString().concat(extension);
 		File targetFile = new File("./../employees-frontend/media/" + photo.getOriginalFilename());
-
         try
         {
             targetFile.createNewFile();

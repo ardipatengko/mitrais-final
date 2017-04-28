@@ -130,10 +130,14 @@
     </tr></table>
 
     <table class="example-full-width" cellspacing="0" style="width: 80%;"><tr>
-      <td><md-input-container class="example-full-width">
-        <input mdInput placeholder="Location"
-        name="location" id="location" formControlName="location" size="100">
-      </md-input-container></td>
+      <td>
+        <md-select placeholder="Location" class="example-full-width"
+      name="location" id="location" formControlName="locationId" style="width: 340px;">
+      <md-option *ngFor="let location of locations" 
+      value="{{ location.locationId }}">{{location.locationName}}
+      </md-option>
+    </md-select>
+        </td>
     </tr></table>
 
     <table class="example-full-width" cellspacing="0">
