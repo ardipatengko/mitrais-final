@@ -1,5 +1,9 @@
 package com.project;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -8,7 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 public class EmployeeController {
@@ -58,5 +64,30 @@ public class EmployeeController {
     @RequestMapping(value="/deleteEmployee/{emp_id}", method=RequestMethod.DELETE)
 	public void deleteEmployeeById(@PathVariable("emp_id") Long emp_id) {
 		employeeRepository.delete(emp_id);
+	}
+	
+	@CrossOrigin(origins = "http://localhost:3000", methods=RequestMethod.POST)
+    @RequestMapping(value="/uploadImage", method=RequestMethod.POST)
+	public void uploadImage(@RequestParam(required = false) MultipartFile photo) {
+		String fileMimeType = photo.getContentType();
+		String extension;
+        if (fileMimeType.contains("jpeg"))
+            extension = ".jpg";
+        else
+            extension = ".png";
+		String filename = UUID.randomUUID().toString().concat(extension);
+		File targetFile = new File("./../employees-frontend/media/" + photo.getOriginalFilename());
+
+        try
+        {
+            targetFile.createNewFile();
+            photo.transferTo(targetFile.getAbsoluteFile());
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+		
+		System.out.println(photo.getOriginalFilename());
 	}
 }

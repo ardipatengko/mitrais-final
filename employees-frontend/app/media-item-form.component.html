@@ -2,7 +2,7 @@
   <!-- <h2>Add Media to Watch</h2> -->
 </header>
 <section>
-  <form
+  <form enctype="multipart/form-data"
     [formGroup]="form"
     (ngSubmit)="onSubmit(form.value)">
     <!--
@@ -153,7 +153,6 @@
      
      <div class="fotoimage">
         <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".png,.jpeg,.jpg" #file hidden>
-        
       </div>
   </form>
   <div class="fotoimage">

@@ -60,7 +60,6 @@ export class MediaItemListComponent {
   onMediaItemSelect(mediaItem) {
     this.isNew = false;
     this.employee = mediaItem;
-    //console.log(mediaItem);
     /*
     this.mediaItemService.delete(mediaItem)
       .subscribe(() => {
@@ -83,6 +82,10 @@ export class MediaItemListComponent {
       .then(employees => this.mediaItems = employees)).then(() => this.mediaItemsCount = this.mediaItems.length);;
     }
     
+  }
+
+  onUpload(photo){
+    this.mediaItemService.upload(photo).subscribe();   
   }
 
   getMediaItems(medium) {

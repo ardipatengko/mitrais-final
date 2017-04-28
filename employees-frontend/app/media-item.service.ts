@@ -32,6 +32,17 @@ export class MediaItemService {
       }); */
   }
 
+  upload(photo) {
+    //console.log(photo);
+    //let body = photo;
+    //let headers = new Headers({ 'Content-Type': 'multipart/form-data', 'boundary' : 'HereGoes' });
+    //let options = new RequestOptions({ headers: headers });
+    return this.http.post('http://localhost:8080/uploadImage', photo)
+      .map(response => {
+        console.log("SUCCESS UPLOAD")
+      });
+  }
+
   update(employeeItem) {
     //console.log(employeeItem);
     let body = JSON.stringify(employeeItem);
