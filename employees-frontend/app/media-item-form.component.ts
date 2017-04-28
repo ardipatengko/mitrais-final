@@ -22,7 +22,7 @@ export class MediaItemFormComponent {
   @Output() upload = new EventEmitter();
   fileList: FileList;
   file: File;
-  photoStart = 'shiba1.jpg';
+  photoStart = 'user.png';
   public locations;
 
   onChanges() {
@@ -73,7 +73,7 @@ export class MediaItemFormComponent {
 
   addNew(){
     console.log("CLear");
-    this.photoStart = 'shiba1.jpg';
+    this.photoStart = 'user.png';
     this.form.reset();
   }
 
@@ -109,7 +109,7 @@ export class MediaItemFormComponent {
       this.changes.emit(mediaItem);
       this.isNew = true;
       this.form.reset();
-      this.photoStart = 'shiba1.jpg';
+      this.photoStart = 'user.png';
     }else{
       
       console.log(mediaItem);/*
@@ -123,7 +123,7 @@ export class MediaItemFormComponent {
       this.isNew = true;
       console.log("UPDATE");
       this.form.reset();
-      this.photoStart = 'shiba1.jpg';
+      this.photoStart = 'user.png';
     }
 
   }

@@ -92,7 +92,7 @@ public class EmployeesBackendApplication {
 		d.setDivisionCode("SWD Red");
 		e.setDivision("SWD Red");
 		//divisionRepository.save(d);
-		e.setPhoto("shiba1.jpg");
+		e.setPhoto("8.jpg");
 		employeeRepository.save(e);
 		
 		Employee e2 = new Employee();
@@ -124,14 +124,14 @@ public class EmployeesBackendApplication {
 		d2.setDivisionCode("SWD Blue");
 		e2.setDivision("SWD Blue");
 		//divisionRepository.save(d2);
-		e2.setPhoto("shiba1.jpg");
+		e2.setPhoto("0.jpg");
 		employeeRepository.save(e2);
 		
 		
 		Employee e3 = new Employee();
 		e3.setFirstName("Karmilla");
 		e3.setLastName("El Zara");
-		e3.setGender("Male");
+		e3.setGender("Female");
 		e3.setDob(new Date(0));
 		e3.setNationality("Australian");
 		e3.setMarStatus("Divorce");
@@ -152,7 +152,7 @@ public class EmployeesBackendApplication {
 		d3.setDivisionCode("TnD");
 		e3.setDivision("TnD");
 		//divisionRepository.save(d3);
-		e3.setPhoto("shiba1.jpg");
+		e3.setPhoto("59.jpg");
 		employeeRepository.save(e3);
 		
 		Employee e4 = new Employee();
@@ -173,7 +173,7 @@ public class EmployeesBackendApplication {
 		e4.setGrade("PG - Programmer");
 		Division d4 = divisionRepository.findByDivId(3);
 		e4.setDivision("TnD");
-		e4.setPhoto("shiba1.jpg");
+		e4.setPhoto("71.jpg");
 		employeeRepository.save(e4);
 		
 		Employee e5 = new Employee();
@@ -194,7 +194,7 @@ public class EmployeesBackendApplication {
 		e5.setGrade("PG - Programmer");
 		Division d5 = divisionRepository.findByDivId(3);
 		e5.setDivision("SWD Red");
-		e5.setPhoto("shiba1.jpg");
+		e5.setPhoto("85.jpg");
 		employeeRepository.save(e5);
 		
 		Employee e6 = new Employee();
@@ -213,7 +213,7 @@ public class EmployeesBackendApplication {
 		e6.setLocation(locationRepository.findOne((long) 3));
 		e6.setGrade("JP - Junior Programmer");
 		e6.setDivision("SWD Blue");
-		e6.setPhoto("shiba1.jpg");
+		e6.setPhoto("80.jpg");
 		employeeRepository.save(e6);
 		
 		Employee e7 = new Employee();
@@ -232,7 +232,7 @@ public class EmployeesBackendApplication {
 		e7.setLocation(locationRepository.findOne((long) 4));
 		e7.setGrade("SM - Senior Manager");
 		e7.setDivision("TnD");
-		e7.setPhoto("shiba1.jpg");
+		e7.setPhoto("90 (1).jpg");
 		employeeRepository.save(e7);
 		
 		Employee e8 = new Employee();
@@ -251,7 +251,7 @@ public class EmployeesBackendApplication {
 		e8.setLocation(locationRepository.findOne((long) 3));
 		e8.setGrade("PG - Programmer");
 		e8.setDivision("SWD Blue");
-		e8.setPhoto("shiba1.jpg");
+		e8.setPhoto("88.jpg");
 		employeeRepository.save(e8);
 		
 		Employee e9 = new Employee();
@@ -270,7 +270,7 @@ public class EmployeesBackendApplication {
 		e9.setLocation(locationRepository.findOne((long) 2));
 		e9.setGrade("FA - Finance & Accounting");
 		e9.setDivision("SWD Blue");
-		e9.setPhoto("shiba1.jpg");
+		e9.setPhoto("90.jpg");
 		employeeRepository.save(e9);
 		
 		Employee e10 = new Employee();
@@ -289,7 +289,7 @@ public class EmployeesBackendApplication {
 		e10.setLocation(locationRepository.findOne((long) 1));
 		e10.setGrade("FA - Finance & Accounting");
 		e10.setDivision("SWD Blue");
-		e10.setPhoto("shiba1.jpg");
+		e10.setPhoto("68.jpg");
 		employeeRepository.save(e10);
 		
 		Employee e11 = new Employee();
@@ -308,7 +308,7 @@ public class EmployeesBackendApplication {
 		e11.setLocation(locationRepository.findOne((long) 3));
 		e11.setGrade("JP - Junior Programmer");
 		e11.setDivision("SWD Blue");
-		e11.setPhoto("shiba1.jpg");
+		e11.setPhoto("73 (1).jpg");
 		employeeRepository.save(e11);
 		
 		Employee e12 = new Employee();
@@ -327,7 +327,7 @@ public class EmployeesBackendApplication {
 		e12.setLocation(locationRepository.findOne((long) 4));
 		e12.setGrade("PG - Programmer");
 		e12.setDivision("SWD Blue");
-		e12.setPhoto("shiba1.jpg");
+		e12.setPhoto("73.jpg");
 		employeeRepository.save(e12);
 
 	}
