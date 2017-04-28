@@ -133,7 +133,7 @@
       <td>
         <md-select placeholder="Location" class="example-full-width"
       name="location" id="location" formControlName="locationId" style="width: 340px;">
-      <md-option *ngFor="let location of locations" 
+      <md-option *ngFor="let location of locations" [value]="location.locationId" 
       value="{{ location.locationId }}">{{location.locationName}}
       </md-option>
     </md-select>
