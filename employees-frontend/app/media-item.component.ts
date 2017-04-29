@@ -8,13 +8,10 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class MediaItemComponent {
   @Input() mediaItem;
   @Input() select;
-  //@Output() select2;
   @Output() wantToDelete = new EventEmitter();
   isSelected = false;
 
   onSelect() {
-    //this.isSelected = this.mediaItem.empId;
-    //this.select2.emit(this.mediaItem);
     this.wantToDelete.emit(true);
   }
 }

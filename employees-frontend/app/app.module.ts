@@ -45,8 +45,7 @@ import {MaterialModule} from '@angular/material';
     MediaItemService,
     { provide: lookupListToken, useValue: lookupLists },
     { provide: lookupListToken2, useValue: lookupLists2 },
-    { provide: lookupListToken3, useValue: lookupLists3 },
-    //{ provide: XHRBackend, useClass: MockXHRBackend }
+    { provide: lookupListToken3, useValue: lookupLists3 }
   ],
   entryComponents: [
     DialogResultExampleDialog

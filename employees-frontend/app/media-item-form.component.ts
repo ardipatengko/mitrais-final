@@ -7,8 +7,6 @@ import { lookupListToken } from './providers';
 import { lookupListToken2 } from './providers';
 import { lookupListToken3 } from './providers';
 
-
-
 @Component({
   selector: 'mw-media-item-form',
   templateUrl: 'app/media-item-form.component.html',
@@ -31,7 +29,6 @@ export class MediaItemFormComponent {
     }else{
       this.changes.emit(this.employeeForm);
     }
-    
   }
 
   constructor(
@@ -93,14 +90,7 @@ export class MediaItemFormComponent {
   }
 
   onSubmit(mediaItem) {
-    //console.log(this.employeeForm);
     if(this.isNew){
-      /*
-      this.mediaItemService.add(mediaItem)
-      .subscribe(() => {
-        this.router.navigate(['/']);
-      });
-      */
       mediaItem.photo = this.photoStart;
       this.changes.emit(mediaItem);
       this.isNew = true;
@@ -108,12 +98,7 @@ export class MediaItemFormComponent {
       this.photoStart = 'new-user-image-default.png';
     }else{
       
-      console.log(mediaItem);/*
-      this.mediaItemService.update(mediaItem)
-      .subscribe(() => {
-        this.router.navigate(['/']);
-      });
-      */
+      console.log(mediaItem);
       mediaItem.photo = this.photoStart;
       this.changes.emit(mediaItem);
       this.isNew = true;
@@ -126,17 +111,10 @@ export class MediaItemFormComponent {
 
   listClick(event, newValue) {
     console.log(newValue);
-    //this.selectedItem = newValue;  // don't forget to update the model here
-    // ... do other stuff here ...
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    // changes.prop contains the old and the new value...
-    //this.form.setValue({firstName: this.employeeForm.firstName});
-    //this.formBuilder.control['firstName'].setValue(this.employeeForm.firstname);
-    //this.form.patchValue({firstName: this.employeeForm.firstName})
     if(this.employeeForm != undefined){
-       
        this.form.setValue({
          empId: this.employeeForm.empId,
          firstName: this.employeeForm.firstName,
@@ -191,7 +169,6 @@ export class MediaItemFormComponent {
         this.file = this.fileList[0];
         const formData:any = new FormData(document.getElementsByTagName('form')[0]);
         formData.append('photo', this.file, this.file.name);
-        //this.upload.emit(formData);
         this.mediaItemService.upload(formData).then(response => this.photoStart = this.file.name);  
     }
     

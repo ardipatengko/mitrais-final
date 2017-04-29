@@ -1,12 +1,10 @@
 <header 
     [ngClass]="{'medium-movies':medium === 'Movies', 'medium-series':medium === 'Series'}">
     <h2>{{medium}}</h2>
-    <!-- <div>{{ mediaItems | sortingView }}</div> -->
 </header>
 <section>
   <div id="searchfilterdelete">
-    
-            <input type="text" placeholder="Search" size="20" #search (keyup)="onKey($event, search.value)"> <!-- (input)="filterItem(search.value)" -->
+        <input type="text" placeholder="Search" size="20" #search (keyup)="onKey($event, search.value)">
          
          <button md-icon-button (click)="deleteItem()">
             <md-icon *ngIf="selectedDelete">delete</md-icon>
@@ -21,9 +19,6 @@
           <md-chip-list>
              <md-chip> &nbsp; {{ mediaItemsCount }} &nbsp; </md-chip>
           </md-chip-list>
-         
-          
-     
   </div>
   <div id="iconmenu">
     <i class="material-icons iconmenuclass">person</i>

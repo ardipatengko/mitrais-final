@@ -1,32 +1,8 @@
 import { OpaqueToken } from '@angular/core';
 
-/*import { ActivatedRoute } from '@angular/router';
-import { MediaItemService } from './media-item.service';
-*/
 export const lookupListToken = new OpaqueToken('lookupListToken');
 export const lookupListToken2 = new OpaqueToken('lookupListToken2');
 export const lookupListToken3 = new OpaqueToken('lookupListToken3');
-
-/*
-const grades = [];
-
-class providers {
-  constructor(private mediaItemService: MediaItemService) {}
-  
-  ngOnInit() {
-    this.getGrades();
-  }
-
-  getGrades() {
-    this.mediaItemService.getGrades()
-      .subscribe(mediaItems => {
-        this.g = mediaItems;
-        //console.log(mediaItems[2]);
-      });
-  }
-
-}
-*/
 
 export const lookupLists = {
   grades: [

@@ -38,7 +38,6 @@ export class MediaItemListComponent {
           medium = '';
         }
         this.getMediaItems(medium);
-        //this.mediaItemsCount = this.mediaItems.length;
       });
   }
 
@@ -62,31 +61,19 @@ export class MediaItemListComponent {
   onMediaItemSelect(mediaItem) {
     this.isNew = false;
     this.employee = mediaItem;
-    /*
-    this.mediaItemService.delete(mediaItem)
-      .subscribe(() => {
-        //this.getMediaItems(this.medium);
-        
-      });
-      */
   }
 
   tes(mediaItem){
-    //console.log(mediaItem.empId);
     this.selectedId = mediaItem.empId;
     this.isNew = false;
     this.employee = mediaItem;
   }
 
-
   onMediaItemChanges(mediaItem){
-    //console.log(mediaItem);
     if(this.isNew){
-      //console.log("ADD");
       this.mediaItemService.add(mediaItem).then(() => this.mediaItemService.get('tes')
       .then(employees => this.mediaItems = employees)).then(() => this.mediaItemsCount = this.mediaItems.length); //.subscribe();
     }else{
-      //console.log("UPDATE");
       this.isNew = true;
       this.mediaItemService.update(mediaItem).then(() => this.mediaItemService.get('tes')
       .then(employees => this.mediaItems = employees)).then(() => this.mediaItemsCount = this.mediaItems.length)
@@ -96,28 +83,27 @@ export class MediaItemListComponent {
   }
 
   onUpload(photo){
-    //this.mediaItemService.upload(photo).subscribe();   
+      
   }
 
   getMediaItems(medium) {
-    //this.medium = medium;
     this.mediaItemService.get(medium)
       .then(mediaItems => {
-        this.mediaItems = mediaItems; // for filer use this : .filter(mediaItem => mediaItem.location === 'Jakarta');
-        //console.log(mediaItems);
+        this.mediaItems = mediaItems;
         this.mediaItemsCount = this.mediaItems.length;
       });
   }
 
   assignCopy(){
    return this.mediaItems;
-}
-filterItem(value){
-   if(!value) this.assignCopy(); //when nothing has typed
-   this.mediaItems = Object.assign([], this.mediaItems).filter(
-      mediaItem => mediaItem.location.locationName.toLowerCase().indexOf(value.toLowerCase()) > -1
-   )
-}
+  }
+
+  filterItem(value){
+    if(!value) this.assignCopy(); //when nothing has typed
+    this.mediaItems = Object.assign([], this.mediaItems).filter(
+        mediaItem => mediaItem.location.locationName.toLowerCase().indexOf(value.toLowerCase()) > -1
+    )
+  }
 
 
 
@@ -132,13 +118,6 @@ filterItem(value){
    );
    this.mediaItemsCount = this.mediaItems.length;
    this.assignCopy();
-    /*
-    if(search.length === 0){
-      this.mediaItems = this.mediaItems;
-    }else{
-      this.mediaItems = this.mediaItems.filter(mediaItem => mediaItem.location === search);
-    }
-    */
   }
 
   public sorting(){
@@ -165,7 +144,6 @@ filterItem(value){
       });
       this.sortingVar = true;
     }
-    console.log("sorting");
   }
 
   openDialog() {
@@ -177,21 +155,20 @@ filterItem(value){
     dialogRef.afterClosed().subscribe(result => {
      this.filterFunction(result);
    this.mediaItemsCount = this.mediaItems.length;
-      //console.log(result);
-      //this.selectedOption = result;
     });
   }
 
   filterFunction(filter: any){
      if(filter){
-       this.mediaItems = Object.assign([], this.mediaItems).filter(
-          mediaItem => mediaItem.gender.toLowerCase().indexOf(filter.gender.toLowerCase()) > -1 &&
-          mediaItem.location.locationName.toLowerCase().indexOf(filter.location.toLowerCase()) > -1
-      );
-      console.log(filter.gender.trim().length);console.log(filter.location.trim().length);
-    }else if(filter.gender.trim().length === 0 && filter.location.trim().length === 0){
-       console.log(filter.gender.trim().length);console.log(filter.location.trim().length);
-       this.getMediaItems('');
+       if(filter.gender.trim().length === 0 && filter.location.trim().length === 0){
+        this.getMediaItems('');
+      }else{
+          console.log(filter.gender);console.log(filter.location);
+          this.mediaItems = Object.assign([], this.mediaItems).filter(
+          mediaItem => mediaItem.gender.toLowerCase() === filter.gender.toLowerCase() &&
+          mediaItem.location.locationName.toLowerCase() == filter.location.toLowerCase()
+           );
+        }
     }else{
        this.getMediaItems('Tes');
      }
@@ -219,7 +196,6 @@ export class DialogResultExampleDialog {
 
     this.mediaItemService.getLocation().subscribe(response => {
         this.locations = response;
-        console.log(this.locations);
       });
       
   }
