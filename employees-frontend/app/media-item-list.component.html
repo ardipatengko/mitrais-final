@@ -6,7 +6,7 @@
   <div id="searchfilterdelete">
         <input type="text" placeholder="Search" size="20" #search (keyup)="onKey($event, search.value)">
          
-         <button md-icon-button (click)="deleteItem()">
+         <button md-icon-button (click)="openDialogDelete()">
             <md-icon *ngIf="selectedDelete">delete</md-icon>
           </button>
           <button md-icon-button (click)="sorting($event)">
@@ -32,10 +32,11 @@
     
       
         <md-list style="padding: 0px;">
+        <div class="notfound" *ngIf="mediaItemsCount === 0"> Employee not found!! </div>
     <mw-media-item
       *ngFor="let mediaItem of mediaItems | sortingView"
       [mediaItem]="mediaItem"
-      (click)="tes(mediaItem)"
+      (click)="selectedEmployee(mediaItem)"
       [select]="selectedId"
       (select2)="onMediaItemSelect($event)"
       (wantToDelete)="onWantToDelete($event)"></mw-media-item>

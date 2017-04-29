@@ -26,7 +26,8 @@ export class MediaItemListComponent {
   constructor(
     private mediaItemService: MediaItemService,
     private activatedRoute: ActivatedRoute,
-    public dialog: MdDialog) {
+    public dialog: MdDialog,
+    public dialog2: MdDialog) {
       this.assignCopy();
     }
 
@@ -63,7 +64,7 @@ export class MediaItemListComponent {
     this.employee = mediaItem;
   }
 
-  tes(mediaItem){
+  selectedEmployee(mediaItem){
     this.selectedId = mediaItem.empId;
     this.isNew = false;
     this.employee = mediaItem;
@@ -104,8 +105,6 @@ export class MediaItemListComponent {
         mediaItem => mediaItem.location.locationName.toLowerCase().indexOf(value.toLowerCase()) > -1
     )
   }
-
-
 
   onKey(event:any, value) { // without type info
     if(!value){
@@ -158,6 +157,25 @@ export class MediaItemListComponent {
     });
   }
 
+  openDialogDelete(){
+    let dialogRef = this.dialog.open(DialogResultExampleDialog2, {
+       height: '250px',
+       width: '300px',
+       
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if(result === 'Yes'){
+        this.deleteItem();
+      }else{
+        this.selectedId='';
+        this.getMediaItems('');
+        this.selectedDelete = false;
+        this.employee = null;
+      }
+    });
+  }
+
+
   filterFunction(filter: any){
      if(filter){
        if(filter.gender.trim().length === 0 && filter.location.trim().length === 0){
@@ -199,4 +217,13 @@ export class DialogResultExampleDialog {
       });
       
   }
+}
+
+@Component({
+  selector: 'dialog-result-example-dialog2',
+  templateUrl: 'app/delete-confirmation-dialog.html',
+  styleUrls: ['app/delete-confirmation-dialog.css']
+})
+export class DialogResultExampleDialog2 {
+  constructor(public dialogRef: MdDialogRef<DialogResultExampleDialog2>) {}
 }

@@ -66,14 +66,16 @@ export class MediaItemFormComponent {
   }
 
   addNew(mediaItem){
-    console.log("CLear");
+    console.log(this.isNew);
+    if(this.isNew===false){
+      this.isNew = true;
+    }
     this.photoStart = 'new-user-image-default.png';
     this.form.reset();
     this.changes.emit(mediaItem);
   }
 
   addNew2(mediaItem){
-    console.log("CLear");
     this.photoStart = 'new-user-image-default.png';
     this.form.reset();
   }
@@ -90,19 +92,22 @@ export class MediaItemFormComponent {
   }
 
   onSubmit(mediaItem) {
+    console.log(this.isNew);
     if(this.isNew){
+      console.log('ADD');
+       console.log(mediaItem);
       mediaItem.photo = this.photoStart;
       this.changes.emit(mediaItem);
       this.isNew = true;
       this.form.reset();
       this.photoStart = 'new-user-image-default.png';
     }else{
-      
+      console.log("UPDATE");
       console.log(mediaItem);
       mediaItem.photo = this.photoStart;
       this.changes.emit(mediaItem);
       this.isNew = true;
-      console.log("UPDATE");
+      
       this.form.reset();
       this.photoStart = 'new-user-image-default.png';
     }
