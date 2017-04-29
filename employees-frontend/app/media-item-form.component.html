@@ -50,7 +50,11 @@
       <td><md-input-container class="example-full-width">
         <input mdInput placeholder="First name"
         name="firstName" id="firstName" formControlName="firstName" size="100">
-      </md-input-container></td>
+      </md-input-container>
+      <div *ngIf="form.controls.firstName.errors?.firstName" class="error">
+        {{form.controls.firstName.errors?.firstName.message}} 
+      </div>
+      </td>
       <td><md-input-container class="example-full-width">
         <input mdInput placeholder="Sub Division" 
         name="subDiv" formControlName="subDiv" id="subDiv" size="100">
@@ -151,8 +155,8 @@
      
     </footer>
      <div id="footerdiv">
-       <button type="submit" md-raised-button class="buttonColor">Save</button>
-       <button type="reset" (click)="addNew()" md-raised-button>Cancel</button> 
+       <button type="submit" md-raised-button class="buttonColor" [disabled]="!form.valid">Save</button>
+       <button type="reset" (click)="addNew(form.value)" md-raised-button>Cancel</button> 
      </div>
      
      <div class="fotoimage">
@@ -162,7 +166,7 @@
   <div class="fotoimage">
     <button md-mini-fab (click)="file.click()" class="buttonColor"><md-icon>add_a_photo</md-icon></button>
   </div>
-  <div id="divfix" (click)="addNew()">
+  <div id="divfix" (click)="addNew2()">
         <button md-mini-fab class="buttonColor"><md-icon>add</md-icon></button>
   </div>
 

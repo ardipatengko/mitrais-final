@@ -33,7 +33,7 @@
 </md-card>
 -->
 
-  <md-list-item (click)="onSelect()"  [ngClass]="{'emp-selected': isSelected===true}" >
+  <md-list-item (click)="onSelect()"  [ngClass]="{'emp-selected': mediaItem.empId===select}" >
      <img md-list-avatar src="media/{{ mediaItem.photo }}" />
      <p md-line>
       <span> {{ mediaItem.firstName }} {{ mediaItem.lastName}} </span>

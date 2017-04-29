@@ -1,24 +1,40 @@
-<div md-dialog-container>
+<div md-dialog-container class="container">
     <form
     [formGroup]="form">
+        
+     
         <h1 md-dialog-title>Employees Filter Base On : </h1>
-        <p> Gender 
-                <md-radio-group name="gender" id="gender" formControlName="gender" #gender>
-                    <md-radio-button value="Male" checked>Male</md-radio-button>
-                    <md-radio-button value="Female">Female</md-radio-button>
-                </md-radio-group>
-        </p>
-        <br />
-        <p> Locations
-            <md-select class="example-full-width" name="location" id="location" formControlName="location" #location>
-                <md-option *ngFor="let location of locations" 
-                value="{{ location.locationName }}">{{ location.locationName }}
-                </md-option>
-            </md-select>
-        </p>
-        <div md-dialog-actions>
-            <button md-button (click)="dialogRef.close(form.value)">Filter</button>
-            <button md-button (click)="dialogRef.close()">Exit</button>
+
+
+        <table class="example-full-width tablemargin" cellspacing="0" style="width: 30%;"><tr>
+                <td> 
+                    <md-select placeholder="Gender" class="example-full-width"
+                        name="gender" id="gender" formControlName="gender" style="width: 240px;">
+                        <md-option *ngFor="let gender of lookupLists3.genders" 
+                        value="{{gender}}">{{gender}}
+                        </md-option>
+                    </md-select>
+                </td>
+            </tr>
+        </table>
+        
+        <table class="example-full-width tablemargin" cellspacing="0" style="width: 40%;">
+            <tr>
+                <td>
+                    <md-select placeholder="Location" class="example-full-width"
+                            name="location" id="location" formControlName="location" style="width: 240px;">
+                        <md-option *ngFor="let location of locations"
+                            value="{{ location.locationName }}">{{location.locationName}}
+                        </md-option>
+                    </md-select>
+                </td>
+            </tr>
+        </table>
+        <div id="button">
+            <div md-dialog-actions>
+                <button md-raised-button style="background-color: #38aff5;" (click)="dialogRef.close(form.value)">Filter</button>
+                <button md-raised-button (click)="dialogRef.close()">Show All</button>
+            </div>
         </div>
     </form>
 </div>

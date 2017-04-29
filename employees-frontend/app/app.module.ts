@@ -8,7 +8,7 @@ import { MediaItemComponent } from './media-item.component';
 import { MediaItemListComponent } from './media-item-list.component';
 import { DialogResultExampleDialog } from './media-item-list.component';
 import { FavoriteDirective } from './favorite.directive';
-import { CategoryListPipe } from './category-list.pipe';
+import { SortingViewPipe } from './sorting-view.pipe';
 import { MediaItemFormComponent } from './media-item-form.component';
 import { MediaItemService } from './media-item.service';
 import { lookupListToken, lookupLists } from './providers';
@@ -37,7 +37,7 @@ import {MaterialModule} from '@angular/material';
     MediaItemComponent,
     MediaItemListComponent,
     FavoriteDirective,
-    CategoryListPipe,
+    SortingViewPipe,
     MediaItemFormComponent,
     DialogResultExampleDialog
   ],

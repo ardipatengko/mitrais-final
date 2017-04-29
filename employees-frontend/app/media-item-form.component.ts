@@ -22,7 +22,7 @@ export class MediaItemFormComponent {
   @Output() upload = new EventEmitter();
   fileList: FileList;
   file: File;
-  photoStart = 'user.png';
+  photoStart = 'new-user-image-default.png';
   public locations;
 
   onChanges() {
@@ -45,10 +45,7 @@ export class MediaItemFormComponent {
   ngOnInit() {
     this.form = this.formBuilder.group({
       empId: this.formBuilder.control(''),
-      firstName: this.formBuilder.control('', Validators.compose([
-        Validators.required,
-        Validators.pattern('[\\w\\-\\s\\/]+')
-      ])),
+      firstName: this.formBuilder.control(''),
       lastName: this.formBuilder.control(''),
       subDiv: this.formBuilder.control(''),
       status: this.formBuilder.control(''),
@@ -71,26 +68,25 @@ export class MediaItemFormComponent {
       });
   }
 
-  addNew(){
+  addNew(mediaItem){
     console.log("CLear");
-    this.photoStart = 'user.png';
+    this.photoStart = 'new-user-image-default.png';
+    this.form.reset();
+    this.changes.emit(mediaItem);
+  }
+
+  addNew2(mediaItem){
+    console.log("CLear");
+    this.photoStart = 'new-user-image-default.png';
     this.form.reset();
   }
 
-  yearValidator(control) {
-    if (control.value.trim().length === 0) {
-      return null;
-    }
-    let year = parseInt(control.value);
-    let minYear = 1800;
-    let maxYear = 2500;
-    if (year >= minYear && year <= maxYear) {
-      return null;
-    } else {
-      return {
-        'year': {
-          min: minYear,
-          max: maxYear
+
+  firstNameValidator(control) {
+    if  (control.value.trim().length >= 50) {
+        return {
+        'firstName': {
+          message: 'First name max 50 characters'
         }
       };
     }
@@ -109,7 +105,7 @@ export class MediaItemFormComponent {
       this.changes.emit(mediaItem);
       this.isNew = true;
       this.form.reset();
-      this.photoStart = 'user.png';
+      this.photoStart = 'new-user-image-default.png';
     }else{
       
       console.log(mediaItem);/*
@@ -123,7 +119,7 @@ export class MediaItemFormComponent {
       this.isNew = true;
       console.log("UPDATE");
       this.form.reset();
-      this.photoStart = 'user.png';
+      this.photoStart = 'new-user-image-default.png';
     }
 
   }
@@ -162,6 +158,30 @@ export class MediaItemFormComponent {
         });
         this.photoStart = this.employeeForm.photo;
         this.isNew = false;
+    }else{
+      this.photoStart = 'new-user-image-default.png';
+      this.form = this.formBuilder.group({
+        empId: this.formBuilder.control(''),
+        firstName: this.formBuilder.control('', Validators.compose([
+          Validators.required,
+          Validators.pattern('[\\w\\-\\s\\/]+')
+        ])),
+        lastName: this.formBuilder.control(''),
+        subDiv: this.formBuilder.control(''),
+        status: this.formBuilder.control(''),
+        gender: this.formBuilder.control(''),
+        suspendDate:this.formBuilder.control(''),
+        dob:this.formBuilder.control(''),
+        hiredDate:this.formBuilder.control(''),
+        nationality:this.formBuilder.control(''),
+        grade:this.formBuilder.control(''),
+        marStatus: this.formBuilder.control(''),
+        division: this.formBuilder.control(''),
+        phone: this.formBuilder.control(''),
+        email: this.formBuilder.control(''),
+        locationId: this.formBuilder.control(''),
+        photo: this.formBuilder.control('')
+      });
     }
   }
 

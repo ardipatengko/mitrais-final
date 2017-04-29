@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Validators, FormBuilder } from '@angular/forms';
 import { MediaItemService } from './media-item.service';
 import {MdDialog, MdDialogRef} from '@angular/material';
+import { lookupListToken3 } from './providers';
 
 @Component({
   selector: 'mw-media-item-list',
@@ -17,7 +18,7 @@ export class MediaItemListComponent {
   sortingVar = true;
   selectedOption: string;
   genderSelected = '';
-
+  selectedId;
   employee;
   isNew = true;
   selectedDelete = false;
@@ -53,7 +54,8 @@ export class MediaItemListComponent {
   deleteItem(){
     console.log("DELETE");
     this.mediaItemService.delete(this.employee).then(() => this.mediaItemService.get('tes')
-      .then(employees => this.mediaItems = employees)).then(() => this.mediaItemsCount = this.mediaItems.length);   
+      .then(employees => this.mediaItems = employees)).then(() => this.mediaItemsCount = this.mediaItems.length)
+      .then(this.employee = null);   
     this.selectedDelete = false;
   }
 
@@ -69,17 +71,26 @@ export class MediaItemListComponent {
       */
   }
 
+  tes(mediaItem){
+    //console.log(mediaItem.empId);
+    this.selectedId = mediaItem.empId;
+    this.isNew = false;
+    this.employee = mediaItem;
+  }
+
+
   onMediaItemChanges(mediaItem){
     //console.log(mediaItem);
     if(this.isNew){
-      console.log("ADD");
+      //console.log("ADD");
       this.mediaItemService.add(mediaItem).then(() => this.mediaItemService.get('tes')
-      .then(employees => this.mediaItems = employees)).then(() => this.mediaItemsCount = this.mediaItems.length);; //.subscribe();
+      .then(employees => this.mediaItems = employees)).then(() => this.mediaItemsCount = this.mediaItems.length); //.subscribe();
     }else{
-      console.log("UPDATE");
+      //console.log("UPDATE");
       this.isNew = true;
       this.mediaItemService.update(mediaItem).then(() => this.mediaItemService.get('tes')
-      .then(employees => this.mediaItems = employees)).then(() => this.mediaItemsCount = this.mediaItems.length);;
+      .then(employees => this.mediaItems = employees)).then(() => this.mediaItemsCount = this.mediaItems.length)
+      .then(() => this.selectedId = null).then(() => this.selectedDelete = false);
     }
     
   }
@@ -177,7 +188,11 @@ filterItem(value){
           mediaItem => mediaItem.gender.toLowerCase().indexOf(filter.gender.toLowerCase()) > -1 &&
           mediaItem.location.locationName.toLowerCase().indexOf(filter.location.toLowerCase()) > -1
       );
-     }else{
+      console.log(filter.gender.trim().length);console.log(filter.location.trim().length);
+    }else if(filter.gender.trim().length === 0 && filter.location.trim().length === 0){
+       console.log(filter.gender.trim().length);console.log(filter.location.trim().length);
+       this.getMediaItems('');
+    }else{
        this.getMediaItems('Tes');
      }
   }
@@ -185,15 +200,17 @@ filterItem(value){
 
 @Component({
   selector: 'dialog-result-example-dialog',
-  templateUrl: 'app/dialog-result-example-dialog.html'
+  templateUrl: 'app/dialog-result-example-dialog.html',
+  styleUrls: ['app/dialog-result-example-dialog.css']
 })
 export class DialogResultExampleDialog {
   constructor(public dialogRef: MdDialogRef<DialogResultExampleDialog>,
-   private formBuilder: FormBuilder,
-   private mediaItemService: MediaItemService) {}
+  private formBuilder: FormBuilder,
+  private mediaItemService: MediaItemService,
+  @Inject(lookupListToken3) public lookupLists3) {}
   form;
   public locations;
-
+  
   ngOnInit() {
     this.form = this.formBuilder.group({
       gender: this.formBuilder.control(''),

@@ -1,7 +1,7 @@
 <header 
     [ngClass]="{'medium-movies':medium === 'Movies', 'medium-series':medium === 'Series'}">
     <h2>{{medium}}</h2>
-    <div>{{ mediaItems | categoryList }}</div>
+    <!-- <div>{{ mediaItems | sortingView }}</div> -->
 </header>
 <section>
   <div id="searchfilterdelete">
@@ -38,9 +38,11 @@
       
         <md-list style="padding: 0px;">
     <mw-media-item
-      *ngFor="let mediaItem of mediaItems"
+      *ngFor="let mediaItem of mediaItems | sortingView"
       [mediaItem]="mediaItem"
-      (select)="onMediaItemSelect($event)"
+      (click)="tes(mediaItem)"
+      [select]="selectedId"
+      (select2)="onMediaItemSelect($event)"
       (wantToDelete)="onWantToDelete($event)"></mw-media-item>
         </md-list>
      
