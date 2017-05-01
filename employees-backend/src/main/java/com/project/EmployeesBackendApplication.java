@@ -78,8 +78,8 @@ public class EmployeesBackendApplication {
 		e.setPhone("+6285242312512");
 		e.setSubDiv("Mitrais PHP Bootcamp");
 		e.setStatus("Employee");
-		e.setSuspendDate(new Date(1000));
-		e.setHiredDate(new Date(500));
+		e.setSuspendDate(new Date(1530557200L * 1000));
+		e.setHiredDate(new Date(1220227200L * 1000));
 		e.setEmail("person1@mitrais.com");
 		e.setLocation(locationRepository.findOne((long) 3));
 		Grade g = new Grade();//gradeRepository
@@ -105,8 +105,8 @@ public class EmployeesBackendApplication {
 		e2.setPhone("+6285242312512");
 		e2.setSubDiv("Mitrais Java Bootcamp");
 		e2.setStatus("Employee");
-		e2.setSuspendDate(new Date(1000));
-		e2.setHiredDate(new Date(500));
+		e2.setSuspendDate(new Date(1530557200L * 1000));
+		e2.setHiredDate(new Date(1320227200L * 1000));
 		e2.setEmail("person2@mitrais.com");
 		e2.setLocation(locationRepository.findOne((long) 4));
 		//Grade g = gradeRepository.findByGradeId(1);
@@ -138,8 +138,8 @@ public class EmployeesBackendApplication {
 		e3.setPhone("+6285242312512");
 		e3.setSubDiv("Mitrais NodeJS Bootcamp");
 		e3.setStatus("Employee");
-		e3.setSuspendDate(new Date(1000));
-		e3.setHiredDate(new Date(500));
+		e3.setSuspendDate(new Date(1530557200L * 1000));
+		e3.setHiredDate(new Date(1409227200L * 1000));
 		e3.setEmail("person3@mitrais.com");
 		e3.setLocation(locationRepository.findOne((long) 1));
 		Grade g3 = new Grade();//gradeRepository
@@ -165,8 +165,8 @@ public class EmployeesBackendApplication {
 		e4.setPhone("+6285242312512");
 		e4.setSubDiv("Mitrais CSS Bootcamp");
 		e4.setStatus("Employee");
-		e4.setSuspendDate(new Date(1000));
-		e4.setHiredDate(new Date(500));
+		e4.setSuspendDate(new Date(1530557200L * 1000));
+		e4.setHiredDate(new Date(1359227200L * 1000));
 		e4.setEmail("person4@mitrais.com");
 		e4.setLocation(locationRepository.findOne((long) 2));
 		Grade g4 = gradeRepository.findByGradeId(2);
@@ -186,8 +186,8 @@ public class EmployeesBackendApplication {
 		e5.setPhone("+6285242312512");
 		e5.setSubDiv("Bank App Developer");
 		e5.setStatus("Employee");
-		e5.setSuspendDate(new Date(1000));
-		e5.setHiredDate(new Date(500));
+		e5.setSuspendDate(new Date(1530557200L * 1000));
+		e5.setHiredDate(new Date(1148227200L * 1000));
 		e5.setEmail("marselsampe.asang@mitrais.com");
 		e5.setLocation(locationRepository.findOne((long) 1));
 		Grade g5 = gradeRepository.findByGradeId(2);
@@ -207,8 +207,8 @@ public class EmployeesBackendApplication {
 		e6.setPhone("+6285242312512");
 		e6.setSubDiv("BTPN JP");
 		e6.setStatus("Trainee");
-		e6.setSuspendDate(new Date(1000));
-		e6.setHiredDate(new Date(500));
+		e6.setSuspendDate(new Date(1530557200L * 1000));
+		e6.setHiredDate(new Date(1400227200L * 1000));
 		e6.setEmail("nobsianusrigenessampe.asang@mitrais.com");
 		e6.setLocation(locationRepository.findOne((long) 3));
 		e6.setGrade("JP - Junior Programmer");
@@ -226,8 +226,8 @@ public class EmployeesBackendApplication {
 		e7.setPhone("+6285242312512");
 		e7.setSubDiv("Employee Quality");
 		e7.setStatus("Manager");
-		e7.setSuspendDate(new Date(1000));
-		e7.setHiredDate(new Date(500));
+		e7.setSuspendDate(new Date(1530557200L * 1000));
+		e7.setHiredDate(new Date(1215227200L * 1000));
 		e7.setEmail("tirtayansensampe.asang@mitrais.com");
 		e7.setLocation(locationRepository.findOne((long) 4));
 		e7.setGrade("SM - Senior Manager");
@@ -245,8 +245,8 @@ public class EmployeesBackendApplication {
 		e8.setPhone("+6285242312512");
 		e8.setSubDiv("BTPN Tester");
 		e8.setStatus("Employee");
-		e8.setSuspendDate(new Date(1000));
-		e8.setHiredDate(new Date(500));
+		e8.setSuspendDate(new Date(1530557200L * 1000));
+		e8.setHiredDate(new Date(1455227200L * 1000));
 		e8.setEmail("daniel.sallao@mitrais.com");
 		e8.setLocation(locationRepository.findOne((long) 3));
 		e8.setGrade("PG - Programmer");
@@ -264,8 +264,8 @@ public class EmployeesBackendApplication {
 		e9.setPhone("+6285242312512");
 		e9.setSubDiv("Salary Division");
 		e9.setStatus("Employee");
-		e9.setSuspendDate(new Date(1000));
-		e9.setHiredDate(new Date(500));
+		e9.setSuspendDate(new Date(1530557200L * 1000));
+		e9.setHiredDate(new Date(1465557200L * 1000));
 		e9.setEmail("isyana.sarasvati@mitrais.com");
 		e9.setLocation(locationRepository.findOne((long) 2));
 		e9.setGrade("FA - Finance & Accounting");
@@ -283,8 +283,8 @@ public class EmployeesBackendApplication {
 		e10.setPhone("+6285242312512");
 		e10.setSubDiv("Salary Division");
 		e10.setStatus("Employee");
-		e10.setSuspendDate(new Date(1000));
-		e10.setHiredDate(new Date(500));
+		e10.setSuspendDate(new Date(1530557200L * 1000));
+		e10.setHiredDate(new Date(1487557200L * 1000));
 		e10.setEmail("diansastro.wardoyo@mitrais.com");
 		e10.setLocation(locationRepository.findOne((long) 1));
 		e10.setGrade("FA - Finance & Accounting");
@@ -302,8 +302,8 @@ public class EmployeesBackendApplication {
 		e11.setPhone("+6285242312512");
 		e11.setSubDiv("Mitrais Jasper Reports Bootcamp");
 		e11.setStatus("Employee");
-		e11.setSuspendDate(new Date(1000));
-		e11.setHiredDate(new Date(500));
+		e11.setSuspendDate(new Date(1530557200L * 1000));
+		e11.setHiredDate(new Date(1337557200L * 1000));
 		e11.setEmail("linda.fajarsari@mitrais.com");
 		e11.setLocation(locationRepository.findOne((long) 3));
 		e11.setGrade("JP - Junior Programmer");
@@ -321,8 +321,8 @@ public class EmployeesBackendApplication {
 		e12.setPhone("+6285242312512");
 		e12.setSubDiv("-");
 		e12.setStatus("Employee");
-		e12.setSuspendDate(new Date(1000));
-		e12.setHiredDate(new Date(500));
+		e12.setSuspendDate(new Date(1530557200L * 1000));
+		e12.setHiredDate(new Date(1200557200L * 1000));
 		e12.setEmail("george.gates@mitrais.com");
 		e12.setLocation(locationRepository.findOne((long) 4));
 		e12.setGrade("PG - Programmer");
