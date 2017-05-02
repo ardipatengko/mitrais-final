@@ -11,4 +11,4 @@ Simple employee application
  - JPA
  
 # database
- - MS SQL Server 2008 R2
+ - MS SQL Server 2008 R2 (create database first, named : final_project)
