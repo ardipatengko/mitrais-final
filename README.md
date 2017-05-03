@@ -1,5 +1,5 @@
 # mitrais-final
-Simple employee application. Works on Google Chrome Version 58.0.3029.81
+Simple employee application. Only works on Google Chrome Version 58.0.3029.81
 How to run : 
  1. Create database, called : "final_project" using MS SQL Server
  2. Run the employees-backend first using eclipse or using command : "mvn spring-boot:run"
